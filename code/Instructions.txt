@@ -1,0 +1,15 @@
+For run the algorithms you basically have to follow the next steps:
+
+1. Change the double MACRO in the file motifj.big.h to this:
+
+#define round(x) (x<0?ceil((x)-0.5):floor((x)+0.5))
+
+And include the library "math.h"
+
+2. Change the variable MAXSEQS in the file motifj.big.h to this:
+#define MAXSEQS       1000000   /* Max number of sequences to be analyzed */
+
+3. Now you can compile your code using the next command :
+gcc-4.8 blosum.c -lm -o blosum (Ubuntu 14.04)
+or only gcc blosum.c (Mac OS X)
+
