@@ -1518,6 +1518,90 @@ Debido a que en nuestra generalización buscamos tener un visión general
  
 \end_layout
 
+\begin_layout Subsection
+ELECCIÓN DEL ALGORITMO 
+\end_layout
+
+\begin_layout Standard
+El algoritmo inicial sobre el cual se desarrollaron las matrices Blosum
+ remonta al año 1991 esta base se ha mantenido con algunas modificaciones
+ que se han ido realizando durante los años siguientes a su creación permitiendo
+ corregir problemas en dicho algoritmo pero conservando su base y usando
+ diferentes bases de datos como entrada que corresponden a las distintas
+ versiones de Blocks.
+\end_layout
+
+\begin_layout Standard
+Para el desarrollo de este trabajo de grado hemos tomado como base un algoritmo
+ que ha sido revisado y corregido algunos problemas que presentaba el algoritmo
+ original, irónicamente los resultados que arroja la versión corregida son
+ peores cuando hablamos de búsquedas en bases de datos usando como base
+ las matrices de sustitución arrojadas por el algoritmo es por esta razón
+ que basados en los alcances de este proyecto se decide realizar tres pruebas
+ para verificar que el algoritmo revisado que a pesar de tener problemas
+ con las matrices cuando son utilizadas para búsquedas conservan la misma
+ información que requerimos para el proceso de generalización.
+\end_layout
+
+\begin_layout Standard
+Para realizar estas pruebas tomamos como base de datos Blocks 7.0 y el algoritmo
+ Blosum revisado y construimos las matrices de sustitución Blosum 45 , Blosum
+ 62 y Blosum 80 después de obtener estas matrices comparamos los resultados
+ arrojados con las versiones que son manejadas actualmente como estándar
+ de las mismas matrices he hicimos una comparación viendo que diferencias
+ había entre la versión antigua y la nueva versión de cada una de las matrices
+ de sustitución.
+ A continuación se presentan tres imágenes correspondientes a la comparación
+ de cada una de las matrices en donde cada valor en la matriz tiene un color
+ asociado para reconocer a simple vista que tan divergente es la matriz
+ arrojada de su antepasado.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Graphics
+	filename Images/Blosum45Comparision.png
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Graphics
+	filename Images/Blosum62Comparision.png
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Graphics
+	filename Images/Blosum80Comparision.png
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Como podemos ver en cada una de las imagenes las diferencias no van mas
+ allá de 3 unidades en la mayoría de las matrices exceptuando la matriz
+ Blosum 45 que presenta valores mas divergentes cabe resaltar que cada uno
+ de estos valores están determinados por los parámetros con los cuales se
+ corrió el algoritmo y la base de datos utilizada para las matrices originales
+ se uso Blocks 5.0 para estas nuevas matrices se uso la base de datos Blocks
+ 7.0 que es la que se tendrá de base para realizar todo el desarrollo durante
+ el trabajo de grado.
+ 
+\end_layout
+
+\begin_layout Standard
+A partir de estos resultados podemos ver que es altamente viable usar el
+ algoritmo revisado como base para las implementaciones de los algoritmos
+ generalizados de las matrices de sustitución.
+\end_layout
+
 \begin_layout Section
 CONCLUSIONES
 \end_layout
