@@ -1,0 +1,197 @@
+#LyX 2.1 created this file. For more info see http://www.lyx.org/
+\lyxformat 474
+\begin_document
+\begin_header
+\textclass article
+\begin_preamble
+\usepackage{pdflscape}
+\addto\captionsspanish{%
+  \renewcommand\tablename{Tabla}
+}
+\end_preamble
+\use_default_options true
+\maintain_unincluded_children false
+\language spanish
+\language_package default
+\inputencoding auto
+\fontencoding global
+\font_roman default
+\font_sans default
+\font_typewriter default
+\font_math auto
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100
+\font_tt_scale 100
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize default
+\spacing single
+\use_hyperref true
+\pdf_bookmarks true
+\pdf_bookmarksnumbered false
+\pdf_bookmarksopen false
+\pdf_bookmarksopenlevel 1
+\pdf_breaklinks false
+\pdf_pdfborder true
+\pdf_colorlinks false
+\pdf_backref false
+\pdf_pdfusetitle true
+\papersize letterpaper
+\use_geometry true
+\use_package amsmath 1
+\use_package amssymb 1
+\use_package cancel 1
+\use_package esint 1
+\use_package mathdots 1
+\use_package mathtools 1
+\use_package mhchem 1
+\use_package stackrel 1
+\use_package stmaryrd 1
+\use_package undertilde 1
+\cite_engine basic
+\cite_engine_type default
+\biblio_style plain
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 1
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\leftmargin 3cm
+\topmargin 3cm
+\rightmargin 3cm
+\bottommargin 3cm
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation skip
+\defskip bigskip
+\quotes_language english
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Section
+ESTADO DEL ARTE
+\end_layout
+
+\begin_layout Standard
+Las matrices de sustitución son muy usadas actualmente en alineamiento de
+ secuencias de nucleótidos o proteínas y es así como muchos estudios e investiga
+ciones se centran principalmente en la manera que se trabajará con la matriz
+ de sustitución y no con el alfabeto a partir del cual se construirá buscando
+ obtener propiedades distintas que se tienen con el uso de distintos alfabetos,
+ a continuación mostramos una breve descripción de los trabajos que más
+ se asemejan al trabajo que se realizará.
+ 
+\end_layout
+
+\begin_layout Subsection
+Simplificación de alfabetos de aminoácidos por medio del algoritmo de Branch
+ and Bound y matrices de sustitución
+\end_layout
+
+\begin_layout Standard
+Las proteínas y ADN son generalmente representados por secuencias de letras.
+ En un número de circunstancias los alfabetos simplificados(donde una o
+ más letras pueden ser representadas por el mismo símbolo) han demostrado
+ su potencial utilidad en varios campos de la bioinformática incluyendo
+ búsqueda de patrones que se producen a un ritmo inesperado, el estudio
+ del plegamiento de proteínas y la búsqueda de consenso en alineamiento
+ de múltiples secuencias .
+ El tema principal abordado en este trabajo es la posibilidad de encontrar
+ un enfoque general que permita un análisis exhaustivo de todos los posibles
+ alfabetos simplificados, utilizando matrices de sustitución.
+\end_layout
+
+\begin_layout Standard
+Una matriz de sustitución para alfabetos estructurales basada en alineamiento
+ estructural de proteínas homólogas y sus aplicaciones.
+ En el presente trabajo, hemos demostrado, usando un alfabeto estructural,
+ la utilidad de codificación de una estructura 3D en el espacio 1D mediante
+ el uso de una matriz de sustitución.
+\end_layout
+
+\begin_layout Standard
+El uso de representación 1D de estructura 3D combinada con nuestra matriz
+ de sustitución y programación dinámica simple permitio obtener buenos resultado
+s incluso en el caso de dos homólogos con longitudes de secuencia muy diferentes
+, se logró localizar regiones de similitud estructural, destacar el cambio
+ sutil en conformaciones dentro de las regiones alineadas e identificar
+ a regiones de ninguna similitud estructural.
+ [2]
+\end_layout
+
+\begin_layout Subsection
+Matrices de similitud de aminoácidos basadas en campos de fuerza.
+\end_layout
+
+\begin_layout Standard
+Nosotros proponemos un método general para derivar matrices de sustitución
+ para aminoácidos de los campos de fuerza de baja resolución.
+ A diferencia de los métodos populares actuales, el enfoque no se basa en
+ los argumentos evolutivos o la alineación de secuencias o estructuras.
+ En su lugar, los residuos son computacionalmente mutados y ellos contribuyen
+ al total de energía/puntuación que es recolectada.
+ El promedio de estos valores sobre cada posición dentro de un conjunto
+ de proteínas resulta en un matriz de sustitución.[3] 
+\end_layout
+
+\begin_layout Subsection
+Fold-specific substitution matrices for protein classification
+\end_layout
+
+\begin_layout Standard
+Los métodos que se centran en estructuras secundarias tales como matrices
+ de puntuación para posiciones específicas y los modelos ocultos de markov,
+ han probado la utilidad de asignar proteínas a familias.
+ Sin embargo, para asignar proteínas a un atributo de clase dentro de una
+ familia estos métodos pueden introducir más parámetros de los necesarios.
+ Nosotros describimos un método para organizar proteínas en una familia
+ que presenta menos una reducción en el número de parámetros.
+ Esto conduce a la definición de una matriz de sustitución de atributos
+ de clase (CLASSUM) similar a la BLOSSUM.
+ [4] 
+\end_layout
+
+\begin_layout Subsection
+Construcción de matrices de sustitución de aminoácidos para comparación
+ de proteínas con composiciones no estándar
+\end_layout
+
+\begin_layout Standard
+Las matrices de sustitución de aminoácidos juegan un papel central en métodos
+ de alineamiento de prote ́ınas.
+ Matrices log-odds est ́andar , tales como la series de PAM y BLOSSUM ,
+ son construidas a partir de grandes conjuntos de alineamientos de proteínas
+ teniendo implícito en el fondo las frecuencias de los aminoácidos.
+ Sin embargo , estas matrices frecuentemente son usadas para comparar proteínas
+ con diferencias muy marcadas en la composición de los aminoácido, tales
+ como proteínas de transmembrana o proteínas de organismos con una composición
+ de bases de nucleótidos fuerte.
+ Se ha dicho en otra parte que las matrices estándar no son ideales para
+ este tipo de comparaciones y, además, por esta razón se ha presentado la
+ transformación de una matriz estándar para su uso en un contexto de composición
+ no estándar.
+ [5]
+\end_layout
+
+\end_body
+\end_document
