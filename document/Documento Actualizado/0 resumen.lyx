@@ -116,7 +116,7 @@ addcontentsline{toc}{section}{RESUMEN}
 \begin_layout Standard
 En este documento se presenta una propuesta para desarrollar e implementar
  una metodología para la construcción de una matriz de sustitución generalizada
- para alfabetos arbitrarios que describen secuencias biológicas.
+ para alfabetos arbitrarios que describen secuencias protéicas.
  El desarrollo de esta propuesta se realiza mediante el seguimiento de un
  conjunto de pasos que van desde el entendimiento conceptual del problema,
  el desarrollo de la metodología y la implementación de los algoritmos correspon

@@ -97,78 +97,56 @@ Las matrices de sustitución son muy usadas actualmente en alineamiento de
  secuencias de nucleótidos o proteínas y es así como muchos estudios e investiga
 ciones se centran principalmente en la manera que se trabajará con la matriz
  de sustitución y no con el alfabeto a partir del cual se construirá buscando
- obtener propiedades distintas que se tienen con el uso de distintos alfabetos,
- a continuación mostramos una breve descripción de los trabajos que más
+ obtener propiedades distintas que se tienen con el uso de distintos alfabetos.
+ A continuación mostramos una breve descripción de los trabajos que más
  se asemejan al trabajo que se realizará.
  
 \end_layout
 
 \begin_layout Subsection
-Simplificación de alfabetos de aminoácidos por medio del algoritmo de Branch
- and Bound y matrices de sustitución
+Matrices de similitud de aminoácidos basadas en campos de fuerza
 \end_layout
 
 \begin_layout Standard
-Las proteínas y ADN son generalmente representados por secuencias de letras.
- En un número de circunstancias los alfabetos simplificados(donde una o
- más letras pueden ser representadas por el mismo símbolo) han demostrado
- su potencial utilidad en varios campos de la bioinformática incluyendo
- búsqueda de patrones que se producen a un ritmo inesperado, el estudio
- del plegamiento de proteínas y la búsqueda de consenso en alineamiento
- de múltiples secuencias .
- El tema principal abordado en este trabajo es la posibilidad de encontrar
- un enfoque general que permita un análisis exhaustivo de todos los posibles
- alfabetos simplificados, utilizando matrices de sustitución.
+En el reconocimiento de pliegue de proteínas, un secuencia de aminoácidos
+ de prueba es comparado con una biblioteca de pliegues representativos de
+ estructura conocida para identificar un homologo estructural.
+ En caso donde la secuencia de aminoácidos de prueba y su homologo tienen
+ una clara similitud como secuencias las matrices de sustitución tradicionales
+ han sido usadas para predecir la similitud estructural.
 \end_layout
 
 \begin_layout Standard
-Una matriz de sustitución para alfabetos estructurales basada en alineamiento
- estructural de proteínas homólogas y sus aplicaciones.
- En el presente trabajo, hemos demostrado, usando un alfabeto estructural,
- la utilidad de codificación de una estructura 3D en el espacio 1D mediante
- el uso de una matriz de sustitución.
+En el caso que la prueba es secuencialmente distante de su homologo se ha
+ desarrollado una matriz de sustitución de 5 dimensiones ( 7 x 3 x 2 x 7
+ x 3) que lleva una representación 3D a 1D de una proteína llamada H3P2,
+ calculada a partir de una base de datos de 119 pares estructurales.
 \end_layout
 
 \begin_layout Standard
-El uso de representación 1D de estructura 3D combinada con nuestra matriz
- de sustitución y programación dinámica simple permitio obtener buenos resultado
-s incluso en el caso de dos homólogos con longitudes de secuencia muy diferentes
-, se logró localizar regiones de similitud estructural, destacar el cambio
- sutil en conformaciones dentro de las regiones alineadas e identificar
- a regiones de ninguna similitud estructural.
- [2]
+Miembros de cara par estructural comparten un pliegue similar pero tienen
+ una identidad de secuencia menor al 30%.
+ Cada posición de la secuencia de prueba es definida por uno de las 7 clases
+ de residuo y 3 clases de estructura secundaria.
+ Cada posición de un pliegue homologo es definida por 7 clases de residuo
+ , 3 clases de estructura secundaria y 2 clases enterradas.
+\end_layout
+
+\begin_layout Standard
+Para realizar la prueba de la matriz de sustitución obtenida se realizo
+ una validación cruzada para comparar la matriz H3P2 con las matrices :
+ GONNET , PAM 250, BLOSUM 62y una matriz de sustitución únicamente de estructura
+ secundaria.
+ Los resultados mostraron que para secuencias distantemente relacionadas
+ la matriz H3P2 detecto mas estructuras homologas y mas alta confiabilidad
+ que las otras matrices de sustitución basados en la relación sensibilidad
+ contra especificidad.
+ 
 \end_layout
 
 \begin_layout Subsection
-Matrices de similitud de aminoácidos basadas en campos de fuerza.
-\end_layout
-
-\begin_layout Standard
-Nosotros proponemos un método general para derivar matrices de sustitución
- para aminoácidos de los campos de fuerza de baja resolución.
- A diferencia de los métodos populares actuales, el enfoque no se basa en
- los argumentos evolutivos o la alineación de secuencias o estructuras.
- En su lugar, los residuos son computacionalmente mutados y ellos contribuyen
- al total de energía/puntuación que es recolectada.
- El promedio de estos valores sobre cada posición dentro de un conjunto
- de proteínas resulta en un matriz de sustitución.[3] 
-\end_layout
-
-\begin_layout Subsection
-Fold-specific substitution matrices for protein classification
-\end_layout
-
-\begin_layout Standard
-Los métodos que se centran en estructuras secundarias tales como matrices
- de puntuación para posiciones específicas y los modelos ocultos de markov,
- han probado la utilidad de asignar proteínas a familias.
- Sin embargo, para asignar proteínas a un atributo de clase dentro de una
- familia estos métodos pueden introducir más parámetros de los necesarios.
- Nosotros describimos un método para organizar proteínas en una familia
- que presenta menos una reducción en el número de parámetros.
- Esto conduce a la definición de una matriz de sustitución de atributos
- de clase (CLASSUM) similar a la BLOSSUM.
- [4] 
+Matrices de sustitución de pliegue especifico para clasificación de proteínas
+ 
 \end_layout
 
 \begin_layout Subsection
@@ -176,21 +154,27 @@ Construcción de matrices de sustitución de aminoácidos para comparación
  de proteínas con composiciones no estándar
 \end_layout
 
-\begin_layout Standard
-Las matrices de sustitución de aminoácidos juegan un papel central en métodos
- de alineamiento de prote ́ınas.
- Matrices log-odds est ́andar , tales como la series de PAM y BLOSSUM ,
- son construidas a partir de grandes conjuntos de alineamientos de proteínas
- teniendo implícito en el fondo las frecuencias de los aminoácidos.
- Sin embargo , estas matrices frecuentemente son usadas para comparar proteínas
- con diferencias muy marcadas en la composición de los aminoácido, tales
- como proteínas de transmembrana o proteínas de organismos con una composición
- de bases de nucleótidos fuerte.
- Se ha dicho en otra parte que las matrices estándar no son ideales para
- este tipo de comparaciones y, además, por esta razón se ha presentado la
- transformación de una matriz estándar para su uso en un contexto de composición
- no estándar.
- [5]
+\begin_layout Subsection
+Un alfabeto estructural de proteínas y su matriz de sustitución CLESUM
+\end_layout
+
+\begin_layout Subsection
+Una matriz de sustitución para reconocimiento de pliegue de la proteína
+ que incluye predicción de la estructura secundaria de una secuencia
+\end_layout
+
+\begin_layout Subsection
+Una matriz de sustitución para alfabetos estructurales basada en alineamientos
+ estructurales de proteínas homologas y sus aplicaciones
+\end_layout
+
+\begin_layout Subsection
+Matriz de sustitución de aminoácidos para la identificación de conformación
+ de proteínas
+\end_layout
+
+\begin_layout Subsection
+Calculo de matrices de sustitución para análisis comparativo genómico
 \end_layout
 
 \end_body
