@@ -141,12 +141,39 @@ Para realizar la prueba de la matriz de sustitución obtenida se realizo
  la matriz H3P2 detecto mas estructuras homologas y mas alta confiabilidad
  que las otras matrices de sustitución basados en la relación sensibilidad
  contra especificidad.
- 
 \end_layout
 
 \begin_layout Subsection
 Matrices de sustitución de pliegue especifico para clasificación de proteínas
- 
+\end_layout
+
+\begin_layout Standard
+Las matrices de sustitución juegan un rol esencial el alineamiento de secuencia
+ de proteínas, una tarea fundamental en bioinformática.
+ Las matrices mas utilizadas como PAM fueron derivadas se secuencias homologas
+ y las matrices BLOSUM fueron derivadas de segmentos alineados en PROSITE
+ por lo que no integraron información relacionada con la conformación de
+ las proteínas en la construcción de las matrices.
+\end_layout
+
+\begin_layout Standard
+Usando las bases de datos PDB_SELECT ,que contiene secuencias de aminoácidos,
+ y DSSP ,que contiene estructuras secundarias de proteínas, se creo una
+ base de bloques de conformación de estructura los cuales representa la
+ relación secuencia estructura, los miembros en un bloque son idénticos
+ en conformación y altamente similares en secuencia.
+ A partir de este base de datos de bloques se derivo una matriz de sustitución
+ de aminoácidos de conformación especifica llamada CBSM60.
+ La matriz muestra un mejorado rendimiento en en la búsqueda de conformación
+ de segmentos y en la detención de homólogos.
+\end_layout
+
+\begin_layout Standard
+En la construcción del la propia base de datos bloque para la búsqueda de
+ similitudes se inicio con la matriz de sustitución BLOSUM 62 y después
+ de obtener el primer resultado de la matriz CBSM60 fue utilizado nuevamente
+ para la creación de una nueva versión de la matriz CBSM60 y el proceso
+ se repitió hasta que una convergencia final fue encontrada.
 \end_layout
 
 \begin_layout Subsection
