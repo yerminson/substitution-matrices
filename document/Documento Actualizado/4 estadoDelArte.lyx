@@ -181,6 +181,32 @@ Construcción de matrices de sustitución de aminoácidos para comparación
  de proteínas con composiciones no estándar
 \end_layout
 
+\begin_layout Standard
+Las matrices de sustitución de aminoácidos juegan papel importante en los
+ métodos de alineamientos de proteínas.
+ Las matrices estándar de log-odd probabilidades como la PAM y BLOSUM son
+ construidas a partir de largos conjuntos de alineamientos teniendo implícitamen
+te antecedentes de las frecuencias de los aminoácidos.
+\end_layout
+
+\begin_layout Standard
+Estas matrices de sustitución han sido usadas para comparar proteínas con
+ diferencias muy marcadas en la composición de los aminoácidos como lo son
+ las proteínas de transmembrana o proteínas de organismos con composiciones
+ de nucleótidos fuertemente sesgadas.
+ Las matrices convencionales no son ideales para este tipo de comparaciones
+ por lo que se construyo una matriz que puede ser utilizada en un ambiente
+ donde no hay una composición estándar obteniendo mejores resultados mediante
+ el ajuste matemático de las matrices ya existentes.
+\end_layout
+
+\begin_layout Standard
+El ajuste composicional de las matrices de sustitución de aminoácidos en
+ general tiende a incrementar la significación estadística de los alineamientos
+ de proteínas con composiciones no estándar y frecuentemente mejora la exactitud
+ de estos alineamientos también.
+\end_layout
+
 \begin_layout Subsection
 Un alfabeto estructural de proteínas y su matriz de sustitución CLESUM
 \end_layout
