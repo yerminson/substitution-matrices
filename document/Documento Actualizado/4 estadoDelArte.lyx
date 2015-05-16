@@ -107,73 +107,8 @@ ciones se centran principalmente en la manera que se trabajará con la matriz
 Matrices de similitud de aminoácidos basadas en campos de fuerza
 \end_layout
 
-\begin_layout Standard
-En el reconocimiento de pliegue de proteínas, un secuencia de aminoácidos
- de prueba es comparado con una biblioteca de pliegues representativos de
- estructura conocida para identificar un homologo estructural.
- En caso donde la secuencia de aminoácidos de prueba y su homologo tienen
- una clara similitud como secuencias las matrices de sustitución tradicionales
- han sido usadas para predecir la similitud estructural.
-\end_layout
-
-\begin_layout Standard
-En el caso que la prueba es secuencialmente distante de su homologo se ha
- desarrollado una matriz de sustitución de 5 dimensiones ( 7 x 3 x 2 x 7
- x 3) que lleva una representación 3D a 1D de una proteína llamada H3P2,
- calculada a partir de una base de datos de 119 pares estructurales.
-\end_layout
-
-\begin_layout Standard
-Miembros de cara par estructural comparten un pliegue similar pero tienen
- una identidad de secuencia menor al 30%.
- Cada posición de la secuencia de prueba es definida por uno de las 7 clases
- de residuo y 3 clases de estructura secundaria.
- Cada posición de un pliegue homologo es definida por 7 clases de residuo
- , 3 clases de estructura secundaria y 2 clases enterradas.
-\end_layout
-
-\begin_layout Standard
-Para realizar la prueba de la matriz de sustitución obtenida se realizo
- una validación cruzada para comparar la matriz H3P2 con las matrices :
- GONNET , PAM 250, BLOSUM 62y una matriz de sustitución únicamente de estructura
- secundaria.
- Los resultados mostraron que para secuencias distantemente relacionadas
- la matriz H3P2 detecto mas estructuras homologas y mas alta confiabilidad
- que las otras matrices de sustitución basados en la relación sensibilidad
- contra especificidad.
-\end_layout
-
 \begin_layout Subsection
 Matrices de sustitución de pliegue especifico para clasificación de proteínas
-\end_layout
-
-\begin_layout Standard
-Las matrices de sustitución juegan un rol esencial el alineamiento de secuencia
- de proteínas, una tarea fundamental en bioinformática.
- Las matrices mas utilizadas como PAM fueron derivadas se secuencias homologas
- y las matrices BLOSUM fueron derivadas de segmentos alineados en PROSITE
- por lo que no integraron información relacionada con la conformación de
- las proteínas en la construcción de las matrices.
-\end_layout
-
-\begin_layout Standard
-Usando las bases de datos PDB_SELECT ,que contiene secuencias de aminoácidos,
- y DSSP ,que contiene estructuras secundarias de proteínas, se creo una
- base de bloques de conformación de estructura los cuales representa la
- relación secuencia estructura, los miembros en un bloque son idénticos
- en conformación y altamente similares en secuencia.
- A partir de este base de datos de bloques se derivo una matriz de sustitución
- de aminoácidos de conformación especifica llamada CBSM60.
- La matriz muestra un mejorado rendimiento en en la búsqueda de conformación
- de segmentos y en la detención de homólogos.
-\end_layout
-
-\begin_layout Standard
-En la construcción del la propia base de datos bloque para la búsqueda de
- similitudes se inicio con la matriz de sustitución BLOSUM 62 y después
- de obtener el primer resultado de la matriz CBSM60 fue utilizado nuevamente
- para la creación de una nueva versión de la matriz CBSM60 y el proceso
- se repitió hasta que una convergencia final fue encontrada.
 \end_layout
 
 \begin_layout Subsection
@@ -211,9 +146,78 @@ El ajuste composicional de las matrices de sustitución de aminoácidos en
 Un alfabeto estructural de proteínas y su matriz de sustitución CLESUM
 \end_layout
 
+\begin_layout Standard
+Al usar un modelo mixto para la distribución de 3 ángulos pseudo enlazados
+ formados por átomos de carbono alfa de 4 residuos consecutivos, los estados
+ de la estructura local son discretizados como 17 letras conformadas de
+ un alfabeto estructural de proteínas.
+ Se construye una matriz de sustitución usando estas letras y basados en
+ los alineamientos estructurales de la base de datos FSSP, que es una base
+ de datos de estructuras alineadas mediante un proceso exhaustivo de todos
+ contra todos comparando la estructura 3D de las proteínas en el PDB(Protein
+ Data Bank).
+\end_layout
+
+\begin_layout Standard
+La mayoría de métodos de predicción de estructura local usan tres estados
+ de la estructura secundaria : helices , hebras y bucles.
+ Sin embargo una estructura secundaria podría variar significativamente
+ en sus estructuras 3D.
+ Al restringir la conformaciones de los residuos locales a estados manejables
+ se puede discretizar la conformación de una proteína para convertir la
+ estructura 3D de la cadena principal a una secuencia 1D con los estados
+ discretos que describen la estructura de la proteína parecidos a los aminoácido
+s.
+ 
+\end_layout
+
+\begin_layout Standard
+La matriz de sustitucion construida se derivo de la misma manera que la
+ matriz BLOSUM cambiando cierta informacion con la intencion de mostrar
+ mas detalles por ejemplo el factor de escala utilizado fue de 20 en lugar
+ de 2 la matriz construida y utilizada para comparar secuencias teniendo
+ en cuenta su alfabeto estructural se denomino CLESUM.
+\end_layout
+
 \begin_layout Subsection
 Una matriz de sustitución para reconocimiento de pliegue de la proteína
  que incluye predicción de la estructura secundaria de una secuencia
+\end_layout
+
+\begin_layout Standard
+En el reconocimiento de pliegue de proteínas, un secuencia de aminoácidos
+ de prueba es comparado con una biblioteca de pliegues representativos de
+ estructura conocida para identificar un homologo estructural.
+ En caso donde la secuencia de aminoácidos de prueba y su homologo tienen
+ una clara similitud como secuencias las matrices de sustitución tradicionales
+ han sido usadas para predecir la similitud estructural.
+\end_layout
+
+\begin_layout Standard
+En el caso que la prueba es secuencialmente distante de su homologo se ha
+ desarrollado una matriz de sustitución de 5 dimensiones ( 7 x 3 x 2 x 7
+ x 3) que lleva una representación 3D a 1D de una proteína llamada H3P2,
+ calculada a partir de una base de datos de 119 pares estructurales.
+\end_layout
+
+\begin_layout Standard
+Miembros de cara par estructural comparten un pliegue similar pero tienen
+ una identidad de secuencia menor al 30%.
+ Cada posición de la secuencia de prueba es definida por uno de las 7 clases
+ de residuo y 3 clases de estructura secundaria.
+ Cada posición de un pliegue homologo es definida por 7 clases de residuo
+ , 3 clases de estructura secundaria y 2 clases enterradas.
+\end_layout
+
+\begin_layout Standard
+Para realizar la prueba de la matriz de sustitución obtenida se realizo
+ una validación cruzada para comparar la matriz H3P2 con las matrices :
+ GONNET , PAM 250, BLOSUM 62y una matriz de sustitución únicamente de estructura
+ secundaria.
+ Los resultados mostraron que para secuencias distantemente relacionadas
+ la matriz H3P2 detecto mas estructuras homologas y mas alta confiabilidad
+ que las otras matrices de sustitución basados en la relación sensibilidad
+ contra especificidad.
 \end_layout
 
 \begin_layout Subsection
@@ -224,6 +228,35 @@ Una matriz de sustitución para alfabetos estructurales basada en alineamientos
 \begin_layout Subsection
 Matriz de sustitución de aminoácidos para la identificación de conformación
  de proteínas
+\end_layout
+
+\begin_layout Standard
+Las matrices de sustitución juegan un rol esencial el alineamiento de secuencia
+ de proteínas, una tarea fundamental en bioinformática.
+ Las matrices mas utilizadas como PAM fueron derivadas se secuencias homologas
+ y las matrices BLOSUM fueron derivadas de segmentos alineados en PROSITE
+ por lo que no integraron información relacionada con la conformación de
+ las proteínas en la construcción de las matrices.
+\end_layout
+
+\begin_layout Standard
+Usando las bases de datos PDB_SELECT ,que contiene secuencias de aminoácidos,
+ y DSSP ,que contiene estructuras secundarias de proteínas, se creo una
+ base de bloques de conformación de estructura los cuales representa la
+ relación secuencia estructura, los miembros en un bloque son idénticos
+ en conformación y altamente similares en secuencia.
+ A partir de este base de datos de bloques se derivo una matriz de sustitución
+ de aminoácidos de conformación especifica llamada CBSM60.
+ La matriz muestra un mejorado rendimiento en en la búsqueda de conformación
+ de segmentos y en la detención de homólogos.
+\end_layout
+
+\begin_layout Standard
+En la construcción del la propia base de datos bloque para la búsqueda de
+ similitudes se inicio con la matriz de sustitución BLOSUM 62 y después
+ de obtener el primer resultado de la matriz CBSM60 fue utilizado nuevamente
+ para la creación de una nueva versión de la matriz CBSM60 y el proceso
+ se repitió hasta que una convergencia final fue encontrada.
 \end_layout
 
 \begin_layout Subsection
