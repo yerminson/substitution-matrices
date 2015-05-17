@@ -149,6 +149,7 @@ La pentosa es diferente en cada uno de los ácidos nucleicos : Desoxirribosa
 \begin_layout Standard
 \begin_inset Graphics
 	filename /home/yerminson/Descargas/nucleic_acid_lg.jpg
+	scale 50
 
 \end_inset
 
@@ -226,6 +227,7 @@ Las proteínas pueden ser estudiadas de acuerdo a su nivel de organización
 \begin_layout Standard
 \begin_inset Graphics
 	filename /home/yerminson/Descargas/protein_lg.jpg
+	scale 50
 
 \end_inset
 
@@ -410,10 +412,6 @@ El objetivo general del alineamiento de pares de secuencias es encontrar
  que contienen sólo los módulos que son similares, que se conocen como dominios
  o motivos.
  [6]
-\end_layout
-
-\begin_layout Standard
-
 \end_layout
 
 \end_body
