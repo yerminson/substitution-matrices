@@ -288,6 +288,21 @@ Una matriz de sustitución para alfabetos estructurales basada en alineamientos
  estructurales de proteínas homologas y sus aplicaciones
 \end_layout
 
+\begin_layout Standard
+Análisis de estructuras de proteínas basado en estructuras de motif cortas
+ se han usado ampliamente y se han mostrado como algo útil en la predicción
+ de la estructura dela proteína , reconstrucción de la cadena principal,
+ descripción y predicción de pequeños lazos y largos fragmentos.
+\end_layout
+
+\begin_layout Standard
+Usando una representación 1D de una una estructura 3D combinada con una
+ matriz de sustitución y programación dinámica simple se logro localizar
+ regiones de similitud estructural, resaltar un cambio sutil en las regiones
+ de similitud estructural e identificar regiones donde no hay similitud
+ estructural.
+\end_layout
+
 \begin_layout Subsection
 Matriz de sustitución de aminoácidos para la identificación de conformación
  de proteínas
@@ -324,6 +339,31 @@ En la construcción del la propia base de datos bloque para la búsqueda de
 
 \begin_layout Subsection
 Calculo de matrices de sustitución para análisis comparativo genómico
+\end_layout
+
+\begin_layout Standard
+Las matrices de sustitución describen el ritmo de mutación de un carácter
+ en una secuencia biológica a otro carácter y son muy importantes para muchas
+ tareas como análisis filogenético y alineamiento de secuencias.
+ Se presenta un novedoso algoritmo para construir una matriz de sustitución
+ de nucleótidos el método esta fundamentado en la teoría de la información
+ básicamente el algoritmo iterativamente usa compresión y construye la matriz
+ de sustitución a partir del alineamiento y se aplica nuevamente la matriz
+ encontrada en el alineamiento para encontrar uno mejor hasta un punto de
+ convergencia donde el alineamiento no se pueda mejorar.
+\end_layout
+
+\begin_layout Standard
+Hasta donde se sabe este es el primer algoritmo que realiza el calculo de
+ una matriz de sustitución para secuencias del tamaño de un genoma sin asumir
+ nada previamente o usar datos de previos alineamientos.
+\end_layout
+
+\begin_layout Standard
+El método ha sido aplicado sobre información real con distancias filogenéticas
+ y composición de nucleótidos diferentes la cual engañaría a métodos estadístico
+s clásicos.
+ 
 \end_layout
 
 \end_body
