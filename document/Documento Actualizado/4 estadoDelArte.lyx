@@ -107,8 +107,71 @@ ciones se centran principalmente en la manera que se trabajará con la matriz
 Matrices de similitud de aminoácidos basadas en campos de fuerza
 \end_layout
 
+\begin_layout Standard
+Se propone un método general para derivar matrices de sustitución de aminoácidos
+ a partir de campos de fuerza de baja resolución.
+ A diferencia de los métodos populares para la obtención de matrices de
+ sustitución el método planteado no utiliza argumentos evolutivos, alineamiento
+ de secuencias o estructuras.
+ La estrategia utilizada fue mutar los residuos y recolectar la contribución
+ al total de la puntuación/energía total.
+ El promedio de estos valores para cada posición entre un conjunto de proteínas
+ resulta en una matriz de sustitución.
+\end_layout
+
+\begin_layout Standard
+En este trabajo se muestra como se puede obtener matrices de sustitución
+ basadas en campos de fuerza que actual sobre estructuras de tres dimensiones.
+ La matriz obtenida permitirá realizar comparaciones entre diferentes campos
+ de fuerza sin importar la diferencia que pueda existir entre los diferentes
+ campos de fuerza.
+ Estas matrices de acuerdo a como son calculadas tienen menos relación con
+ la evolución o alineamientos de secuencias ya que están fundamentadas en
+ propiedades de los residuos como es el caso de los campos de fuerza.
+\end_layout
+
+\begin_layout Standard
+Como parte de los resultados varios ejemplos de matrices de sustitución
+ asimétricas han sido calculados a partir de campos de fuerza usando diferentes
+ acercamientos y el rendimiento obtenido para cada una de las matrices fue
+ comparado con respecto a las matrices de sustitución convencionales.
+\end_layout
+
 \begin_layout Subsection
 Matrices de sustitución de pliegue especifico para clasificación de proteínas
+\end_layout
+
+\begin_layout Standard
+Se describe un método para organizar proteínas en una familia que permita
+ reducir un orden de magnitud en el numero de parámetros utilizados para
+ la construcción de una matriz de sustitución.
+ La base usada como medida de similitud en las matrices de sustitución convencio
+nales es el logaritmo de la razón de oportunidades (log odd ratio).
+ Esta característica se adapto para poder crear un atributo de diferenciación
+ que conllevo a la definición de las matrices de sustitución CLASSUM(Class
+ Attribute Substitution Matrices) con características similares a la matriz
+ de sustitución BLOSUM.
+\end_layout
+
+\begin_layout Standard
+El método utilizado fue aplicado para clasificar secuencias jerárquicamente
+ en subgrupos lambda y kappa de la superfamilia de las inmunoglobulinas.
+ Las posiciones que confieren una clase fueron identificadas basadas en
+ el grado de variabilidad de un aminoácido en una posición.
+ Donde las matrices CLASSUM tienen mejores resultados en la clasificación
+ comparados a los resultados de la matriz de sustitucion BLOSUM 62.
+\end_layout
+
+\begin_layout Standard
+Los resultados obtenidos sugieren que matrices de sustitución derivadas
+ de información especifica de una familia pueden mejorar la resolución de
+ métodos automáticos que usan matrices de sustitución para búsqueda y clasificac
+ión de proteínas.
+ Con lo que se pueden clasificar proteínas dentro de una familia usando
+ menos parámetros que los que serian utilizados por métodos de clasificación
+ como redes neuronales , modelos ocultos de Markov o matrices de puntuación
+ de posición especifica.
+ 
 \end_layout
 
 \begin_layout Subsection
