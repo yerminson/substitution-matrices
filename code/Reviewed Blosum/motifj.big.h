@@ -46,7 +46,7 @@
 
 #define MAX_DISTANCE      24  /* Max spacing between aminos of motif */
 #define MIN_DISTANCE      1     /* Min distance specification */
-#define MAXSEQS       1000000   /* Max number of sequences to be analyzed */
+#define MAXSEQS       16583   /* Max number of sequences to be analyzed */
 #define MINSEQS           2     /* Min number of sequences to be analyzed */
 #define MAXFREQ           1000  /* Max occurences of motif in all seqs */
 #define MAX_LENGTH    5500  /* Max length of each sequence */

@@ -83,17 +83,15 @@ int aachar_to_num();
 char *num_to_aachar();
 /*---------------------Functions in motmisc.o ----------------------*/
 
-
-struct block {                          /* Block structure */
-   char ac[10];
-   int nseq, width, strength, nclus;
-   int aa[MAXSEQS][MAX_MERGE_WIDTH];    /* aas for seq */
-   double weight[MAXSEQS];              /* seq weights found in block */
-   int cluster[MAXSEQS];                /* cluster # for seq */
-   int ncluster[MAXSEQS];               /* #seqs in same cluster */
-   double totdiag, totoffd, wtot;
-} Block;
-
+  struct block {                          /* Block structure */
+     char ac[10];
+     int nseq, width, strength, nclus;
+     int aa[MAXSEQS][MAX_MERGE_WIDTH];    /* aas for seq */
+     double weight[MAXSEQS];              /* seq weights found in block */
+     int cluster[MAXSEQS];                /* cluster # for seq */
+     int ncluster[MAXSEQS];               /* #seqs in same cluster */
+     double totdiag, totoffd, wtot;
+  } Block;
 
 double Counts[AAS][AAS];
 unsigned long TotPairs, TotSeqs, TotAas, TotWidth;
@@ -110,7 +108,7 @@ int MinStr, MaxStr, Cluster;
 void
 main(argc, argv)
   int argc;
-  char *argv[];
+  char *argv[]  ;
 {
   FILE *fdat, *fout;
   char datfile[FNAMELEN], outfile[FNAMELEN], ctemp[6];
@@ -158,10 +156,12 @@ main(argc, argv)
     if (strlen(ctemp))
       MaxStr = atoi(ctemp);
   }
+
   printf("Minimum block strength=%d, Maximum block strength=%d\n", MinStr, MaxStr);
 
    /*----------Arg 4, Clustering ------------------------------------*/
   Cluster = -1;       /* No clustering */
+
   if (argc > 4)
     strcpy(ctemp, argv[4]);
   else {
@@ -174,9 +174,10 @@ main(argc, argv)
     gets(ctemp);
   }
   /*
-     e => -1, n=> -2, w=> -3 p=> -4 
+    e => -1, n=> -2, w=> -3 p=> -4 
    */
   Cluster = -1;
+
   if (strlen(ctemp))
     if (ctemp[0] == 'n' || ctemp[0] == 'N')
       Cluster = -2;
@@ -215,6 +216,7 @@ main(argc, argv)
     if (strlen(ctemp))
       iscale = atoi(ctemp);
   }
+
   if (iscale < 0)
     iscale = 0;
   if (iscale > 100)
@@ -231,6 +233,7 @@ main(argc, argv)
   sumsij = 0;
   minsij = 999;
   maxsij = -999;
+
   for (row = 0; row < AAS; row++) {
     AaPairs[row] = (unsigned long) 0;
     AaFreq[row] = (unsigned long) 0;
@@ -242,13 +245,16 @@ main(argc, argv)
 
    /*---------------Read the blocks ----------------------------------*/
   totblk = read_dat(fdat);
+
   fclose(fdat);
   printf("\n%d blocks processed", totblk);
   printf(", %ld blocks contributed pairs to matrix\n", TotBlk);
+
   if (Cluster >= 0) {
     printf(" %lf clumps contributed pairs to matrix (%f)\n", TotClump, TotClump / FTotWeight);
     printf(" %ld segments contributed pairs to matrix (%f)\n", TotSeg, (float) TotSeg / TotBlk);
   }
+
   printf("%f total pairs, %f total weight\n", FTotPairs, FTotWeight);
   printf(" %ld total sequences, ", TotSeqs);
   printf("%ld total columns, ", TotWidth);
@@ -256,11 +262,14 @@ main(argc, argv)
 /*----------------------------------------------------------------------*/
 /*-------------------The frequency matrix ------------------------------*/
   printf("Frequencies = fij pairs (off-diagonals = 2*fij):\n");
+
   for (col = 0; col < AAS; col++)
     printf("    %1s  ", num_to_aachar(col));
   printf("\n");
+
   totdiag = totoffd = totpairs = (double) 0.0;
   ftotdiag = ftotoffd = ftotpairs = (double) 0.0;
+
   for (row = 0; row < AAS; row++) {
     for (col = 0; col <= row; col++) {
       if (row == col) {
@@ -273,11 +282,14 @@ main(argc, argv)
     }
     printf("\n");
   }
+
   totpairs = totdiag + totoffd;
   ftotpairs = ftotdiag + ftotoffd;
+
   for (col = 0; col < AAS; col++)
     printf("   %1s  ", num_to_aachar(col));
   printf("\n");
+
 /*--------------Print the target frequencies, qij ----------------------*/
   if (Cluster >= 0)
     sprintf(outfile, "blosum%d.qij", Cluster);
@@ -291,9 +303,12 @@ main(argc, argv)
     sprintf(outfile, "blosume.qij");
   if ((fout = fopen(outfile, "wt")) == NULL)
     fout = stdout;
+
   printf("\nTarget Probabilities=qij in %s\n", outfile);
+
   fprintf(fout, "#  BLOSUM Clustered Target Frequencies=qij\n");
   fprintf(fout, "#  Blocks Database = %s\n", datfile);
+
   if (Cluster >= 0)
     fprintf(fout, "#  Cluster Percentage: >= %d\n", Cluster);
   else if (Cluster == -4)
@@ -307,7 +322,9 @@ main(argc, argv)
   for (col = 0; col < AAS; col++)
     fprintf(fout, "   %1s   ", num_to_aachar(col));
   fprintf(fout, "\n");
+
   sumqij = 0.0;
+
   for (row = 0; row < AAS; row++) {
     for (col = 0; col <= row; col++) {
       if (col == row) {
@@ -328,6 +345,7 @@ main(argc, argv)
   printf("sumqij = %f\n", sumqij);
 /*----------------Marginal frequencies -------------------------------*/
   printf("\nMarginal Probabilities by AA = p(i,*):\n");
+
   for (col = 0; col < AAS; col++) {
     for (row = 0; row < AAS; row++)
       if (col == row)
@@ -335,28 +353,37 @@ main(argc, argv)
       else
         FAaPairs[row] += (Counts[row][col] + Counts[col][row]) / 2.0;
   }
+
   sumpi = 0.0;
+
   for (col = 0; col < AAS; col++)
     printf("   %1s  ", num_to_aachar(col));
   printf("\n");
+
   for (col = 0; col < AAS; col++) {
     printf("%.3f ", FAaPairs[col] / totpairs);  /* p(col,*) */
     sumpi += FAaPairs[col] / totpairs;
   }
+
   printf("\nsumpi=%.3f", sumpi);
 
   totaas = (unsigned long) 0;
+
   printf("\nAA Frequencies = ai:\n");
+
   for (col = 0; col < AAS; col++) {
     printf("%8ld ", AaFreq[col]);
     totaas += AaFreq[col];
   }
 /*---------------Amino acid frequencies ----------------------------*/
   printf("\nAA Probabilities = fi:\n");
+
   sumpi = 0.0;
+
   for (col = 0; col < AAS; col++)
     printf("   %1s  ", num_to_aachar(col));
   printf("\n");
+
   for (col = 0; col < AAS; col++) {
     printf("%.3f ", (double) AaFreq[col] / totaas); /* fi */
     sumpi += (double) AaFreq[col] / totaas;
@@ -450,7 +477,7 @@ main(argc, argv)
   dtemp += (double) AaFreq[2] * AaFreq[3] * sij[2][3];
   dtemp += (double) AaFreq[3] * AaFreq[2] * sij[3][2];
   dtemp += (double) AaFreq[3] * AaFreq[3] * sij[3][3];
-  dtemp1 = (double) AaFreq[2] + AaFreq[3];
+    dtemp1 = (double) AaFreq[2] + AaFreq[3];
   dtemp /= (dtemp1 * dtemp1);
   sij[20][20] = dtemp;
   // IMPORTANT CODING CHANGE, implemented by Henikoff... fixed
@@ -495,6 +522,7 @@ main(argc, argv)
   sij[22][22] = dtemp1;
    /*--------Now fill in (X) x (B,Z) ------------------------------*/
   x = xx = 0.0;
+
   for (row = 0; row < AAS; row++) {
     // IMPORTANT CODING CHANGES: Two, actually. First, the sij
     // column index in xx should match the AaFreq index.  They
@@ -533,8 +561,10 @@ main(argc, argv)
   if ((fout = fopen(outfile, "wt")) == NULL)
     fout = stdout;
   printf("\nScoring matrix in bit units=sij in %s\n", outfile);
+
   fprintf(fout, "#  BLOSUM Clustered Scoring Matrix in Bit Units=sij\n");
   fprintf(fout, "#  Blocks Database = %s\n", datfile);
+
   if (Cluster >= 0)
     fprintf(fout, "#  Cluster Percentage: >= %d\n", Cluster);
   else if (Cluster == -4)
@@ -546,15 +576,18 @@ main(argc, argv)
   else if (Cluster == -1)
     fprintf(fout, "#  Existing Clusters Used\n");
   fprintf(fout, "#  Entropy = % 8.4f, Expected = % 8.4f\n", entropy, expected);
+
   for (col = 0; col < AAS; col++)
     fprintf(fout, "   %1s     ", num_to_aachar(col));
   fprintf(fout, "B   Z   X\n");
   fprintf(fout, "\n");
+
   for (row = 0; row < AAS + 3; row++) {
     for (col = 0; col <= row; col++)
       fprintf(fout, "% 8.4f ", sij[row][col]);
     fprintf(fout, "\n");
   }
+
   fclose(fout);
 
 /*-------------Determine the scale based on entropy-------------------*/
@@ -581,6 +614,7 @@ main(argc, argv)
   printf("\nInteger scoring matrix in 1/%d bit units in %s\n", iscale, outfile);
   fprintf(fout, "#  BLOSUM Clustered Scoring Matrix in 1/%d Bit Units\n", iscale);
   fprintf(fout, "#  Blocks Database = %s\n", datfile);
+
   if (Cluster >= 0)
     fprintf(fout, "#  Cluster Percentage: >= %d\n", Cluster);
   else if (Cluster == -4)
@@ -592,9 +626,11 @@ main(argc, argv)
   else if (Cluster == -1)
     fprintf(fout, "#  Existing Clusters Used\n");
   fprintf(fout, "#  Entropy = % 8.4f, Expected = % 8.4f\n", entropy, expected);
+
   for (col = 0; col < AAS; col++)
     fprintf(fout, " %1s  ", num_to_aachar(col));
   fprintf(fout, "B   Z   X\n");
+
   for (row = 0; row < AAS + 3; row++) {
     for (col = 0; col <= row; col++) {
       s = (double) sij[row][col] * iscale;
@@ -608,6 +644,7 @@ main(argc, argv)
     }
     fprintf(fout, "\n");
   }
+
   fclose(fout);
   /*
      for (col=0; col<AAS; col++) printf(" %1s ", num_to_aachar(col)); 
@@ -619,6 +656,7 @@ main(argc, argv)
   for (col = 0; col < AAS; col++)
     printf(" %1s  ", num_to_aachar(col));
   printf("B   Z   X\n");
+
   for (row = 0; row < AAS + 3; row++) {
     for (col = 0; col <= row; col++) {
       s = (double) sij[row][col] * iscale;
@@ -627,24 +665,28 @@ main(argc, argv)
     }
     printf("\n");
   }
+
   for (col = 0; col < AAS; col++)
     printf(" %1s  ", num_to_aachar(col));
   printf("B   Z   X\n");
+
 /*-----------------The log base 10 matrix ----------------------------*/
   printf("\n10 times log base 10 matrix:\n");
   for (col = 0; col < AAS; col++)
     printf(" %1s  ", num_to_aachar(col));
   printf("\n");
+
   for (row = 0; row < AAS; row++) {
     for (col = 0; col <= row; col++)
       printf("%3d ", tij[row][col]);
     printf("\n");
   }
+
   for (col = 0; col < AAS; col++)
     printf(" %1s  ", num_to_aachar(col));
   printf("\n");
 /*----------------------------------------------------------------------*/
-  exit(0);
+  exit(0); q
 }               /* end of main */
 /*=====================================================================
       Read the blocks database
@@ -713,6 +755,7 @@ fill_block(fdat)
   Block.totdiag = Block.totoffd = Block.wtot = (double) 0;
   cluster = ncluster = 0;
   done = NO;
+
   while (!done && !feof(fdat) && fgets(line, MAXLINE, fdat) != NULL) {
     /*fprintf(stderr, "%d\t%s", Block.nseq, line);*/
     /*fflush(stderr);*/
@@ -899,7 +942,7 @@ count_position()
 void
 count_weight()
 {
-  int seq1, seq2, col;
+    int seq1, seq2, col;
   double weight;
 
   for (col = 0; col < Block.width; col++)
@@ -1066,12 +1109,13 @@ char ch;
 void
 cluster_seqs()
 {
-  int clus, npair, threshold, s1, s2, l1, l2, px, i, i1, i2;
+  int  s1, s2;
+  int clus, npair, threshold, l1, l2, px, i, i1, i2;
   int nclus[MAXSEQS], minclus, oldclus;
   struct pair *pairs;
   /*
-     UNIX struct pair pairs[MAXSEQS*(MAXSEQS-1)/2]; 
-   */
+    UNIX struct pair pairs[MAXSEQS*(MAXSEQS-1)/2]; 
+  */
 
   npair = Block.nseq * (Block.nseq - 1) / 2;
   pairs = (struct pair *) malloc(npair * sizeof(struct pair));
@@ -1083,7 +1127,7 @@ cluster_seqs()
 
   /*
      Compute scores for all possible pairs of sequences 
-   */
+  */
   for (s1 = 0; s1 < Block.nseq - 1; s1++) { /* col = 0, n-2 */
     l1 = 0;
     for (s2 = s1 + 1; s2 < Block.nseq; s2++) {  /* row = col+1, n-1 */
