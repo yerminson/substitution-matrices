@@ -1,0 +1,373 @@
+#LyX 2.1 created this file. For more info see http://www.lyx.org/
+\lyxformat 474
+\begin_document
+\begin_header
+\textclass article
+\begin_preamble
+\usepackage{pdflscape}
+\addto\captionsspanish{%
+  \renewcommand\tablename{Tabla}
+}
+\end_preamble
+\use_default_options true
+\maintain_unincluded_children false
+\language spanish
+\language_package default
+\inputencoding auto
+\fontencoding global
+\font_roman default
+\font_sans default
+\font_typewriter default
+\font_math auto
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100
+\font_tt_scale 100
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize default
+\spacing single
+\use_hyperref true
+\pdf_bookmarks true
+\pdf_bookmarksnumbered false
+\pdf_bookmarksopen false
+\pdf_bookmarksopenlevel 1
+\pdf_breaklinks false
+\pdf_pdfborder true
+\pdf_colorlinks false
+\pdf_backref false
+\pdf_pdfusetitle true
+\papersize letterpaper
+\use_geometry true
+\use_package amsmath 1
+\use_package amssymb 1
+\use_package cancel 1
+\use_package esint 1
+\use_package mathdots 1
+\use_package mathtools 1
+\use_package mhchem 1
+\use_package stackrel 1
+\use_package stmaryrd 1
+\use_package undertilde 1
+\cite_engine natbib
+\cite_engine_type numerical
+\biblio_style plain
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 1
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\leftmargin 3cm
+\topmargin 3cm
+\rightmargin 3cm
+\bottommargin 3cm
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation skip
+\defskip bigskip
+\quotes_language english
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Section
+ESTADO DEL ARTE
+\end_layout
+
+\begin_layout Standard
+Las matrices de sustitución son muy usadas actualmente en alineamiento de
+ secuencias de nucleótidos o proteínas y es así como muchos estudios e investiga
+ciones se centran principalmente en la manera que se trabajará con la matriz
+ de sustitución y no con el alfabeto a partir del cual se construirá buscando
+ obtener propiedades distintas que se tienen con el uso de distintos alfabetos.
+ A continuación mostramos una breve descripción de los trabajos que más
+ se asemejan al trabajo que se realizará.
+ 
+\end_layout
+
+\begin_layout Subsection
+Amino acid similarity matrices based on force fields
+\end_layout
+
+\begin_layout Standard
+Se propone un método general para derivar matrices de sustitución de aminoácidos
+ a partir de campos de fuerza de baja resolución.
+ A diferencia de los métodos populares para la obtención de matrices de
+ sustitución el método planteado no utiliza argumentos evolutivos, alineamiento
+ de secuencias o estructuras.
+ La estrategia utilizada fue mutar los residuos y recolectar la contribución
+ al total de la puntuación/energía total.
+ El promedio de estos valores para cada posición entre un conjunto de proteínas
+ resulta en una matriz de sustitución.
+ 
+\end_layout
+
+\begin_layout Standard
+En este trabajo se muestra como se puede obtener matrices de sustitución
+ basadas en campos de fuerza que actual sobre estructuras de tres dimensiones.
+ La matriz obtenida permitirá realizar comparaciones entre diferentes campos
+ de fuerza sin importar la diferencia que pueda existir entre los diferentes
+ campos de fuerza.
+ Estas matrices de acuerdo a como son calculadas tienen menos relación con
+ la evolución o alineamientos de secuencias ya que están fundamentadas en
+ propiedades de los residuos como es el caso de los campos de fuerza.
+\end_layout
+
+\begin_layout Standard
+Como parte de los resultados varios ejemplos de matrices de sustitución
+ asimétricas han sido calculados a partir de campos de fuerza usando diferentes
+ acercamientos y el rendimiento obtenido para cada una de las matrices fue
+ comparado con respecto a las matrices de sustitución convencionales.
+ 
+\end_layout
+
+\begin_layout Subsection
+Fold-specific substitution matrices for protein classification
+\end_layout
+
+\begin_layout Standard
+Se describe un método para organizar proteínas en una familia que permita
+ reducir un orden de magnitud en el numero de parámetros utilizados para
+ la construcción de una matriz de sustitución.
+ La base usada como medida de similitud en las matrices de sustitución convencio
+nales es el logaritmo de la razón de oportunidades (log odd ratio).
+ Esta característica se adapto para poder crear un atributo de diferenciación
+ que conllevo a la definición de las matrices de sustitución CLASSUM(Class
+ Attribute Substitution Matrices) con características similares a la matriz
+ de sustitución BLOSUM.
+\end_layout
+
+\begin_layout Standard
+El método utilizado fue aplicado para clasificar secuencias jerárquicamente
+ en subgrupos lambda y kappa de la superfamilia de las inmunoglobulinas.
+ Las posiciones que confieren una clase fueron identificadas basadas en
+ el grado de variabilidad de un aminoácido en una posición.
+ Donde las matrices CLASSUM tienen mejores resultados en la clasificación
+ comparados a los resultados de la matriz de sustitucion BLOSUM 62.
+\end_layout
+
+\begin_layout Standard
+Los resultados obtenidos sugieren que matrices de sustitución derivadas
+ de información especifica de una familia pueden mejorar la resolución de
+ métodos automáticos que usan matrices de sustitución para búsqueda y clasificac
+ión de proteínas.
+ Con lo que se pueden clasificar proteínas dentro de una familia usando
+ menos parámetros que los que serian utilizados por métodos de clasificación
+ como redes neuronales , modelos ocultos de Markov o matrices de puntuación
+ de posición especifica.
+ 
+\end_layout
+
+\begin_layout Subsection
+The construction of amino acid substitution matrices for the comparison
+ of proteins with non-standard compositions
+\end_layout
+
+\begin_layout Standard
+Las matrices de sustitución de aminoácidos juegan papel importante en los
+ métodos de alineamientos de proteínas.
+ Las matrices estándar de log-odd probabilidades como la PAM y BLOSUM son
+ construidas a partir de largos conjuntos de alineamientos teniendo implícitamen
+te antecedentes de las frecuencias de los aminoácidos.
+\end_layout
+
+\begin_layout Standard
+Estas matrices de sustitución han sido usadas para comparar proteínas con
+ diferencias muy marcadas en la composición de los aminoácidos como lo son
+ las proteínas de transmembrana o proteínas de organismos con composiciones
+ de nucleótidos fuertemente sesgadas.
+ Las matrices convencionales no son ideales para este tipo de comparaciones
+ por lo que se construyo una matriz que puede ser utilizada en un ambiente
+ donde no hay una composición estándar obteniendo mejores resultados mediante
+ el ajuste matemático de las matrices ya existentes.
+\end_layout
+
+\begin_layout Standard
+El ajuste composicional de las matrices de sustitución de aminoácidos en
+ general tiende a incrementar la significación estadística de los alineamientos
+ de proteínas con composiciones no estándar y frecuentemente mejora la exactitud
+ de estos alineamientos también.
+\end_layout
+
+\begin_layout Subsection
+A Protein Structural Alphabet and Its Substitution Matrix CLESUM
+\end_layout
+
+\begin_layout Standard
+Al usar un modelo mixto para la distribución de 3 ángulos pseudo enlazados
+ formados por átomos de carbono alfa de 4 residuos consecutivos, los estados
+ de la estructura local son discretizados como 17 letras conformadas de
+ un alfabeto estructural de proteínas.
+ Se construye una matriz de sustitución usando estas letras y basados en
+ los alineamientos estructurales de la base de datos FSSP, que es una base
+ de datos de estructuras alineadas mediante un proceso exhaustivo de todos
+ contra todos comparando la estructura 3D de las proteínas en el PDB(Protein
+ Data Bank).
+\end_layout
+
+\begin_layout Standard
+La mayoría de métodos de predicción de estructura local usan tres estados
+ de la estructura secundaria : helices , hebras y bucles.
+ Sin embargo una estructura secundaria podría variar significativamente
+ en sus estructuras 3D.
+ Al restringir la conformaciones de los residuos locales a estados manejables
+ se puede discretizar la conformación de una proteína para convertir la
+ estructura 3D de la cadena principal a una secuencia 1D con los estados
+ discretos que describen la estructura de la proteína parecidos a los aminoácido
+s.
+ 
+\end_layout
+
+\begin_layout Standard
+La matriz de sustitucion construida se derivo de la misma manera que la
+ matriz BLOSUM cambiando cierta informacion con la intencion de mostrar
+ mas detalles por ejemplo el factor de escala utilizado fue de 20 en lugar
+ de 2 la matriz construida y utilizada para comparar secuencias teniendo
+ en cuenta su alfabeto estructural se denomino CLESUM.
+\end_layout
+
+\begin_layout Subsection
+A 3D-1D substitution matrix for protein fold recognition that includes predicted
+ secondary structure of the sequence
+\end_layout
+
+\begin_layout Standard
+En el reconocimiento de pliegue de proteínas, un secuencia de aminoácidos
+ de prueba es comparado con una biblioteca de pliegues representativos de
+ estructura conocida para identificar un homologo estructural.
+ En caso donde la secuencia de aminoácidos de prueba y su homologo tienen
+ una clara similitud como secuencias las matrices de sustitución tradicionales
+ han sido usadas para predecir la similitud estructural.
+\end_layout
+
+\begin_layout Standard
+En el caso que la prueba es secuencialmente distante de su homologo se ha
+ desarrollado una matriz de sustitución de 5 dimensiones ( 7 x 3 x 2 x 7
+ x 3) que lleva una representación 3D a 1D de una proteína llamada H3P2,
+ calculada a partir de una base de datos de 119 pares estructurales.
+\end_layout
+
+\begin_layout Standard
+Miembros de cara par estructural comparten un pliegue similar pero tienen
+ una identidad de secuencia menor al 30%.
+ Cada posición de la secuencia de prueba es definida por uno de las 7 clases
+ de residuo y 3 clases de estructura secundaria.
+ Cada posición de un pliegue homologo es definida por 7 clases de residuo
+ , 3 clases de estructura secundaria y 2 clases enterradas.
+\end_layout
+
+\begin_layout Standard
+Para realizar la prueba de la matriz de sustitución obtenida se realizo
+ una validación cruzada para comparar la matriz H3P2 con las matrices :
+ GONNET , PAM 250, BLOSUM 62y una matriz de sustitución únicamente de estructura
+ secundaria.
+ Los resultados mostraron que para secuencias distantemente relacionadas
+ la matriz H3P2 detecto mas estructuras homologas y mas alta confiabilidad
+ que las otras matrices de sustitución basados en la relación sensibilidad
+ contra especificidad.
+\end_layout
+
+\begin_layout Subsection
+A substitution matrix for structural alphabet based on structural alignment
+ of homologous proteins and its applications
+\end_layout
+
+\begin_layout Standard
+Análisis de estructuras de proteínas basado en estructuras de motif cortas
+ se han usado ampliamente y se han mostrado como algo útil en la predicción
+ de la estructura dela proteína , reconstrucción de la cadena principal,
+ descripción y predicción de pequeños lazos y largos fragmentos.
+\end_layout
+
+\begin_layout Standard
+Usando una representación 1D de una una estructura 3D combinada con una
+ matriz de sustitución y programación dinámica simple se logro localizar
+ regiones de similitud estructural, resaltar un cambio sutil en las regiones
+ de similitud estructural e identificar regiones donde no hay similitud
+ estructural.
+\end_layout
+
+\begin_layout Subsection
+Amino acid substitution matrices for protein conformation identification
+\end_layout
+
+\begin_layout Standard
+Las matrices de sustitución juegan un rol esencial el alineamiento de secuencia
+ de proteínas, una tarea fundamental en bioinformática.
+ Las matrices más utilizadas, como la PAM, fueron derivadas se secuencias
+ homólogas, mientras que las matrices BLOSUM fueron derivadas de segmentos
+ alineados en PROSITE, por lo que no integraron información relacionada
+ con la conformación de las proteínas en la construcción de las matrices.
+\end_layout
+
+\begin_layout Standard
+Usando las bases de datos PDB_SELECT, que contiene secuencias de aminoácidos,
+ y DSSP, que contiene estructuras secundarias de proteínas, se creó una
+ base de bloques de conformación de estructura, los cuales representan la
+ relación secuencia-estructura.
+ Los miembros en un bloque son idénticos en conformación y altamente similares
+ en secuencia.
+ A partir de esta base de datos de bloques se derivó una matriz de sustitución
+ de aminoácidos de conformación específica llamada CBSM60.
+ La matriz muestra un mejorado rendimiento en la búsqueda de conformación
+ de segmentos y en la detención de homólogos.
+\end_layout
+
+\begin_layout Standard
+En la construcción del la propia base de datos bloque para la búsqueda de
+ similitudes se inicio con la matriz de sustitución BLOSUM 62 y después
+ de obtener el primer resultado de la matriz CBSM60 fue utilizado nuevamente
+ para la creación de una nueva versión de la matriz CBSM60 y el proceso
+ se repitió hasta que una convergencia final fue encontrada.
+ 
+\end_layout
+
+\begin_layout Subsection
+Computing Substitution Matrices for Genomic Comparative Analysis
+\end_layout
+
+\begin_layout Standard
+Las matrices de sustitución describen el ritmo de mutación de un carácter
+ en una secuencia biológica a otro carácter y son muy importantes para muchas
+ tareas como análisis filogenético y alineamiento de secuencias.
+ Se presenta un novedoso algoritmo para construir una matriz de sustitución
+ de nucleótidos, el método está fundamentado en la teoría de la información.
+ Básicamente, el algoritmo usa compresión iterativamente y construye la
+ matriz de sustitución a partir del alineamiento, luego se aplica nuevamente
+ la matriz encontrada en el alineamiento, para hallar uno mejor, hasta alcanzar
+ un punto de convergencia donde el alineamiento no se pueda mejorar.
+\end_layout
+
+\begin_layout Standard
+Hasta donde se sabe este es el primer algoritmo que realiza el cálculo de
+ una matriz de sustitución para secuencias del tamaño de un genoma sin asumir
+ nada previamente o usar datos de previos alineamientos.
+\end_layout
+
+\begin_layout Standard
+El método ha sido aplicado sobre información real con distancias filogenéticas
+ y composición de nucleótidos diferentes, la cual engañaría a métodos estadístic
+os clásicos.
+ 
+\end_layout
+
+\end_body
+\end_document

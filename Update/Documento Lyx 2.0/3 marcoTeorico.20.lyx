@@ -1,0 +1,422 @@
+#LyX 2.1 created this file. For more info see http://www.lyx.org/
+\lyxformat 474
+\begin_document
+\begin_header
+\textclass article
+\begin_preamble
+\usepackage{pdflscape}
+\addto\captionsspanish{%
+  \renewcommand\tablename{Tabla}
+}
+\end_preamble
+\use_default_options true
+\maintain_unincluded_children false
+\language spanish
+\language_package default
+\inputencoding auto
+\fontencoding global
+\font_roman default
+\font_sans default
+\font_typewriter default
+\font_math auto
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100
+\font_tt_scale 100
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize default
+\spacing single
+\use_hyperref true
+\pdf_bookmarks true
+\pdf_bookmarksnumbered false
+\pdf_bookmarksopen false
+\pdf_bookmarksopenlevel 1
+\pdf_breaklinks false
+\pdf_pdfborder true
+\pdf_colorlinks false
+\pdf_backref false
+\pdf_pdfusetitle true
+\papersize letterpaper
+\use_geometry true
+\use_package amsmath 1
+\use_package amssymb 1
+\use_package cancel 1
+\use_package esint 1
+\use_package mathdots 1
+\use_package mathtools 1
+\use_package mhchem 1
+\use_package stackrel 1
+\use_package stmaryrd 1
+\use_package undertilde 1
+\cite_engine basic
+\cite_engine_type default
+\biblio_style plain
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 1
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\leftmargin 3cm
+\topmargin 3cm
+\rightmargin 3cm
+\bottommargin 3cm
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation skip
+\defskip bigskip
+\quotes_language english
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Section
+MARCO TEÓRICO
+\end_layout
+
+\begin_layout Subsection
+Nucleótidos
+\end_layout
+
+\begin_layout Standard
+Los genes por sí mismos contienen su información como una secuencia específica
+ de nucleótidos, que son encontrados en el ADN de las moléculas.
+ Solo cuatro bases diferentes son usadas en las moléculas de ADN: guanina
+ (G), adenina (A), timina (T) y citosina (C).
+ En el ARN, la base nitrogenada uracilo (U) ocupa el lugar de la timina.
+ Cada base está unida a un grupo fosfato y a una azúcar desoxirribosa, en
+ el caso del ADN, o ribosa, en el caso del ARN, para formar un nucleótido.
+ El elemento que nos permite diferenciar un nucleótido de otro es la base
+ nitrogenada que contiene.
+ Al representar la estructura de cada una de las bases nitrogenadas podemos
+ encontrar diferencias muy marcadas, las cuales nos permiten distinguir
+ fácilmente entre un nucleótido y otro.
+ [8]
+\end_layout
+
+\begin_layout Standard
+Un nucleótido es la pieza básica de los ácidos nucleicos.
+ El ADN y el ARN son polímeros formados por largas cadenas de nucleótidos.
+ Un nucleótido está formado por una molécula de azúcar (desoxirribosa en
+ el ADN y ribosa en el ARN) unida a un grupo fosfato y una base nitrogenada.
+ Las bases nitrogenadas se pueden agrupar en dos grandes grupos: purinas
+ (formados por adenina y guanina) y pirimidinas (formados por citosina,
+ timina y uracilo).
+\end_layout
+
+\begin_layout Subsection
+Ácidos nucleicos
+\end_layout
+
+\begin_layout Standard
+Los ácidos nucleicos son un tipo importante de macromoléculas presentes
+ en todas las células y virus.
+ Las funciones de los ácidos nucleicos tienen que ver con el almacenamiento
+ y la expresión de información genética.
+ El ácido desoxirribonucleico (ADN) codifica la información que la célula
+ necesita para fabricar proteínas.
+ Un tipo de ácido nucleico relacionado con él, llamado ácido ribonucleico
+ (ARN), presenta diversas formas moleculares y participa en la síntesis
+ de proteínas.
+\end_layout
+
+\begin_layout Standard
+La pentosa es diferente en cada uno de los ácidos nucleicos: Desoxirribosa
+ en el ADN y Ribosa en el ARN.
+ Las bases nitrogenadas son similares, pero en el ARN se cambia timina por
+ uracilo y la estructura de las cadenas es diferente, el ADN forma una doble
+ hélice mientras que el ARN forma solo una cadena.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Graphics
+	filename /home/yerminson/Descargas/nucleic_acid_lg.jpg
+	scale 50
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Aminoácidos 
+\end_layout
+
+\begin_layout Standard
+Los Aminoácidos son los bloques de construcción de las proteínas.
+ A diferencia del ADN y ARN, en los cuales hay cuatro nucleótidos de los
+ cuales escoger, las proteínas son construidas de 20 aminoácidos con una
+ variedad de tamaños, formas y propiedades químicas.
+ 
+\end_layout
+
+\begin_layout Standard
+Cada aminoácido está compuesto esencialmente por un grupo amino (-NH2),
+ un carbono alfa, un grupo carboxilo (-COOH) y una cadena (habitualmente
+ denominada cadena lateral o radical R) de estructura variable que determina
+ la identidad y las propiedades de cada uno de los diferentes aminoácidos.
+ Existen cientos de radicales, de los cuales se conocen cientos de aminoácidos,
+ pero solo 20 aminoácidos forman parte de las proteínas y tienen codones
+ específicos en el código genético.
+\end_layout
+
+\begin_layout Standard
+Los aminoácidos están con frecuencia agrupados en tres categorías.
+ Los aminoácidos hidrofóbicos, los cuales tienen cadenas laterales compuestas
+ principalmente o enteramente de carbono e hidrógeno, tienen pocas probabilidade
+s de formar enlaces de hidrógeno con las moléculas acuosas.
+ Los aminoácidos polares, los cuales con frecuencia contienen oxígeno y/o
+ nitrógeno en sus cadenas laterales, forman enlaces de hidrógeno con agua
+ de una manera muy fácil.
+  Finalmente, los aminoácidos cargados llevan una carga positiva o negativa
+ en el pH biológico.
+ [8] 
+\end_layout
+
+\begin_layout Subsection
+Proteínas
+\end_layout
+
+\begin_layout Standard
+Las proteínas son una clase importante de moléculas que se encuentran en
+ todas las células vivas.
+ Una proteína se compone de una o más cadenas largas de aminoácidos cuya
+ secuencia corresponde a la secuencia de ADN del gen que la codifica.
+ Las proteínas desempeñan gran variedad de funciones en la célula, incluidas
+ estructurales (citoesqueleto), mecánicas (músculo), bioquímicas (enzimas),
+ y de señalización celular (hormonas).
+ Las proteínas son también parte esencial de la dieta.
+\end_layout
+
+\begin_layout Standard
+Las proteínas desempeñan un papel fundamental para la vida y son las biomolécula
+s más versátiles y diversas, imprescindibles en el crecimiento del organismo.
+\end_layout
+
+\begin_layout Standard
+Las proteínas pueden ser estudiadas de acuerdo a su nivel de organización.
+ Empezando con la estructura primaria, la cual es la secuencia o cadena
+ de aminoácidos que describe la proteína, la estructura secundaria, que
+ se produce cuando la secuencia de aminoácidos están unidas por enlaces
+ de hidrógeno formando hélices alfa y hojas plegadas beta, la estructura
+ terciaria, que se produce cuando ciertas atracciones están presentes entre
+ las hélices alfa y las hojas plegadas beta, y finalmente la estructura
+ cuaternaria, que es una proteína formada por más de una cadena de aminoácidos.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Graphics
+	filename /home/yerminson/Descargas/protein_lg.jpg
+	scale 50
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Matrices de Sustitución 
+\end_layout
+
+\begin_layout Standard
+Una matriz de sustitución, o puntuación, describe el ritmo al que un carácter
+ en una secuencia cambia a otro carácter con el tiempo.
+ Las matrices de sustitución se ven usualmente en el contexto de alineamiento
+ de secuencias de aminoácidos o ADN, donde la similitud entre las secuencias
+ depende del tiempo desde su divergencia y de los ritmos de sustitución
+ según se presenta en la matriz.
+\end_layout
+
+\begin_layout Standard
+Este tipo de matrices son más usuales en los alineamientos de secuencias
+ de aminoácidos (proteínas) que en los de nucleótidos ya que en las matrices
+ de sustitución para secuencias de nucleótidos son relativamente simples.
+ Un valor positivo o una puntuación alta es dada para un acierto y un valor
+ negativo o puntuación baja es dada para un fallo, para el caso de los 
+\emph on
+gaps
+\emph default
+ también se manejaría una puntuación negativa.
+\end_layout
+
+\begin_layout Standard
+Las matrices de sustitución más utilizadas son las matrices PAM y las BLOSUM.
+ Ambas son matrices de log-probabilidades que se diferencian principalmente
+ en los fundamentos para el cálculo inicial de las probabilidades de sustitución
+ entre aminoácidos.
+\end_layout
+
+\begin_layout Subsection
+PAM
+\end_layout
+
+\begin_layout Standard
+Las matrices PAM fueron las primeras construidas, quienes recogían alineamientos
+ de 71 grupos de secuencias de proteínas estrechamente relacionadas.
+ El nombre PAM viene de 
+\emph on
+point accepted mutation
+\emph default
+, porque usa homólogos muy relacionados, las mutaciones observadas no se
+ espera que cambien significativamente la función común de las proteínas.
+ Es decir, las sustituciones de aminoácidos son consideradas como aceptadas
+ por la selección natural.
+ 
+\end_layout
+
+\begin_layout Standard
+El valor de una determinada celda representa la probabilidad de la sustitución
+ de un aminoácido por otro, conocida como mutación puntual.
+ Puesto que la matriz se calcula observando diferencias entre proteínas
+ muy cercanas evolutivamente (con, al menos, un 85 % de similitud), las
+ sustituciones en cuestión no tienen efecto sobre la función de la proteína,
+ por lo que se trata de mutaciones aceptadas en el proceso evolutivo.
+ Estas secuencias de proteínas fueron agrupadas basadas en reconstrucción
+ filogenética usando “maximum parsimony”.
+ Las matrices PAM fueron después derivadas basadas en la divergencia evolutiva
+ entre las secuencias del mismo grupo.
+ Una unidad (PAM 1) es definida como 1% de las posiciones de aminoácidos
+ que se han cambiado.
+ Para construir una tabla de sustitución PAM 1, un grupo de secuencias estrecham
+ente relacionadas con frecuencias de mutación correspondientes a una unidad
+ PAM son escogidas.
+ Basados en la información mutacional para este grupo de secuencias, una
+ matriz de sustitución puede ser derivada a partir de esta matriz (PAM 1)
+ elevandola a una determinada potencia por lo que la matriz (PAM 250) resultaria
+ elevando a la 250 potencia la matriz (PAM 1).
+ [6] 
+\end_layout
+
+\begin_layout Subsection
+BLOSUM
+\end_layout
+
+\begin_layout Standard
+BLOSUM (matriz de sustitución de bloques de aminoácidos) es una matriz de
+ sustitución utilizada para el alineamiento de secuencias de proteínas.
+ BLOSUM se usa para puntuar alineamientos entre secuencias de proteínas
+ evolutivamente divergentes.
+ Se basa en alineamientos locales, y se introdujo en 1992 por primera vez
+ en un artículo de S.
+ Henikoff y J.
+ G.
+ Henikoff.
+ Recorrieron la base de datos BLOCKS analizando regiones muy conservadas
+ de familias de proteínas (sin 
+\emph on
+gaps
+\emph default
+ en el alineamiento de secuencias) y comprobaron las frecuencias relativas
+ de aparición de los aminoácidos y las probabilidades de sustitución entre
+ ellos.
+ Seguidamente calcularon una puntuación de log-probabilidad para cada una
+ de las 210 posibles sustituciones de los 20 aminoácidos estándar.
+\end_layout
+
+\begin_layout Standard
+Todas las BLOSUM se basan en alineamientos observados, y no son extrapoladas
+ de comparaciones de proteínas cercanamente relacionadas.
+ Existen bastantes conjuntos de matrices BLOSUM que utilizan diferentes
+ bases de datos de alineamientos, y que se nombran con números.
+ Las BLOSUM seguidas de un número alto están diseñadas para comparar secuencias
+ cercanamente relacionadas, mientras que las BLOSUM con número bajo están
+ diseñadas para comparar secuencias relacionadas de forma distante.
+\end_layout
+
+\begin_layout Standard
+Por ejemplo, BLOSUM 80 se usa para alineamientos menos divergentes, mientras
+ que BLOSUM 45 se usa para alineamientos más divergentes.
+ A cada posible identidad o sustitución se le asigna una puntuación basada
+ en las frecuencias observadas en el alineamiento de proteínas relacionadas.
+ Se da una puntuación positiva a las sustituciones más probables, mientras
+ que corresponde una puntuación negativa para sustituciones menos probables.
+ El numero que acompaña a la matriz BLOSUM indica el porcentaje de similitud
+ que existe entre las secuencias que se tomaron como base para la construcción
+ de la matriz por tal motivo entre mayor sea el número más relación hay
+ entre las secuencias que fueron consideradas para la construcción de la
+ matriz.
+\end_layout
+
+\begin_layout Standard
+BLOSUM 62 es la matriz calculada usando las sustituciones observadas entre
+ proteínas que tienen, como mínimo, el 62 % de identidad en la secuencia,
+ y se ha convertido en el estándar de la mayoría de los programas que utilizan
+ este tipo de matrices.[7] 
+\end_layout
+
+\begin_layout Subsection
+Alineamiento de Secuencias
+\end_layout
+
+\begin_layout Standard
+La comparación de secuencias se encuentra en el corazón del análisis bioinformát
+ico.
+ Esto es un importante primer paso hacia el análisis estructural y funcional
+ de secuencias recién determinadas.
+ Como las nuevas secuencias biológicas están siendo generadas en proporciones
+ exponenciales, la comparación de secuencias es cada vez más importante
+ para extraer inferencias funcionales y evolutivas de una nueva proteína
+ con proteínas ya existentes en las bases de datos.
+ El principal proceso en este tipo de comparación es el alineamiento de
+ secuencias.
+ Este es el proceso por el cual secuencias se comparan mediante la búsqueda
+ de patrones de caracteres comunes y se establecen r-r correspondencia entre
+ secuencias relacionadas.
+ Alineamiento de pares de secuencias es el proceso de alinear dos secuencias
+ y es la base de búsqueda de similitud en bases de datos y alineación múltiple
+ de secuencias.
+ 
+\end_layout
+
+\begin_layout Standard
+El objetivo general del alineamiento de pares de secuencias es encontrar
+ el mejor emparejamiento de dos secuencias, tal que hay máxima correspondencia
+ entre residuos.
+ Para lograr esta meta , una secuencia necesita ser desplazada respecto
+ a la otra para encontrar la posición donde se encuentran las coincidencias
+ máximas.
+ En alineación global, dos secuencias a ser alineados se supone que las
+ dos secuencias son generalmente similares en toda su longitud.
+ La alineación se lleva a cabo de principio a fin de ambas secuencias para
+ encontrar el mejor alineamiento posible a través de la longitud total entre
+ las dos secuencias.
+ Este método es más aplicable para la alineación de dos secuencias estrechamente
+ relacionadas de más o menos la misma longitud.
+ El alineamiento global tiene problemas con secuencias divergentes y secuencias
+ de longitudes variables ya que falla para reconocer regiones locales muy
+ similares entre las dos secuencias por lo que no se obtienen resultados
+ óptimos.
+ La alineación local, por otra parte, no asume que las dos secuencias en
+ cuestión tienen similitud en toda la longitud.
+ Esto sólo encuentra regiones locales con el más alto nivel de similitud
+ entre las dos secuencias y alinea estas regiones sin considerar para la
+ alineación el resto de las regiones de la secuencia.
+ Este enfoque se puede utilizar para la alineación de secuencias más divergentes
+ con el objetivo de buscar patrones de ADN conservados o secuencias de proteínas.
+ Las dos secuencias a ser alineadas pueden ser de diferentes longitudes.
+ Este enfoque es más apropiado para alinear secuencias biológicas divergentes
+ que contienen sólo los módulos que son similares, que se conocen como dominios
+ o motivos.
+ [6]
+\end_layout
+
+\end_body
+\end_document

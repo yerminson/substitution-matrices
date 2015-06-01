@@ -1,0 +1,1014 @@
+#LyX 2.1 created this file. For more info see http://www.lyx.org/
+\lyxformat 474
+\begin_document
+\begin_header
+\textclass article
+\begin_preamble
+\usepackage{pdflscape}
+\addto\captionsspanish{%
+  \renewcommand\tablename{Tabla}
+}
+\end_preamble
+\use_default_options true
+\maintain_unincluded_children false
+\language spanish
+\language_package default
+\inputencoding auto
+\fontencoding global
+\font_roman default
+\font_sans default
+\font_typewriter default
+\font_math auto
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100
+\font_tt_scale 100
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize default
+\spacing single
+\use_hyperref true
+\pdf_bookmarks true
+\pdf_bookmarksnumbered false
+\pdf_bookmarksopen false
+\pdf_bookmarksopenlevel 1
+\pdf_breaklinks false
+\pdf_pdfborder true
+\pdf_colorlinks false
+\pdf_backref false
+\pdf_pdfusetitle true
+\papersize letterpaper
+\use_geometry true
+\use_package amsmath 1
+\use_package amssymb 1
+\use_package cancel 1
+\use_package esint 1
+\use_package mathdots 1
+\use_package mathtools 1
+\use_package mhchem 1
+\use_package stackrel 1
+\use_package stmaryrd 1
+\use_package undertilde 1
+\cite_engine basic
+\cite_engine_type default
+\biblio_style plain
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 1
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\leftmargin 3cm
+\topmargin 3cm
+\rightmargin 3cm
+\bottommargin 3cm
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation skip
+\defskip bigskip
+\quotes_language english
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Section
+REVISIÓN Y COMPARACIÓN DE LAS MATRICES DE SUSTITUCIÓN MÁS UTILIZADAS 
+\end_layout
+
+\begin_layout Standard
+Dentro de la primera parte de este trabajo se busca realizar un estudio
+ de las matrices de sustitución que son utilizadas actualmente con el fin
+ de encontrar la más adecuada a partir de la cual se pueda desarrollar la
+ metodología que se quiere proponer.
+ Para ello se tomaron como principales referencias la matriz PAM y la matriz
+ BLOSUM.
+ Mostramos las características fundamentales, y de manera muy general cómo
+ son construidas, para finalmente establecer una comparación entre ambas
+ matrices y seleccionar la más adecuada como base para realizar matrices
+ de sustitución generalizadas utilizando alfabetos arbitrarios.
+\end_layout
+
+\begin_layout Subsection
+Matrices de sustitución
+\end_layout
+
+\begin_layout Standard
+Las matrices de sustitución juegan un papel muy importante en la bioinformática,
+ ya que al momento de comparar secuencias se debe tener en cuenta la influencia
+ que puede tener la evolución y cómo se pueden presentar diferentes tipos
+ de cambios durante el proceso.
+ Para las proteínas, en el proceso de sustitución se considera más aceptable
+ el reemplazo de aminoácidos similares que aquellos que son divergentes
+ con respecto a sus características fisicoquímicas .
+\end_layout
+
+\begin_layout Standard
+Existen dos maneras de construir matrices de sustitución para proteínas.
+ Una de ellas es basada en las propiedades de cada aminoácido, como lo son
+ el residuo hidrofóbico, la carga de electronegatividad, y el tamaño, viendo
+ así la importancia de conocer las propiedades fisicoquímicas de los aminoácidos
+, 
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+otra manera de construir matrices de sustitución
+\end_layout
+
+\end_inset
+
+.
+ La segunda manera se basa en el código genético, con lo que se busca el
+ número necesario de sustituciones para pasar de un codón a otro, teniendo
+ en cuenta las dos secuencias alineadas.
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+La otra manera más común
+\end_layout
+
+\end_inset
+
+ de construir matrices de sustitución es mediante la observación de la proporció
+n de sustitución real entre varios aminoácidos en la naturaleza, por lo
+ que si una sustitución entre dos aminoácidos es observada frecuentemente,
+ esta será puntuada positivamente.
+ Esta es una idea muy sencilla, sin embargo se basa en algo que ocurre en
+ la naturaleza.
+\end_layout
+
+\begin_layout Standard
+Por esta razón la segunda manera es la más utilizada ya que es más intuitiva
+ y se ajusta mejor a lo que realmente puede estar ocurriendo entre diferentes
+ secuencias de proteínas.
+ Lo que se desea conocer es si dos secuencias son homólogas, es decir están
+ evolutivamente relacionadas, o no lo está; por lo que se busca una puntuación
+ para el alineamiento que refleje la razón con la que un residuo puede cambiar
+ a otro teniendo en cuenta alineamientos realizados anteriormente.
+ Por este motivo y basados en alineamientos sin gaps se han desarrollado
+ dos matrices muy utilizadas para puntuar alineamientos de secuencias en
+ bioinformática : la matriz PAM y la matriz BLOSUM que de manera diferente
+ buscan puntuar cada una de las sustituciones que se puede dar de un aminoácido
+ a otro teniendo en cuenta una análisis inicial sobre una gran cantidad
+ de secuencias que estaban de cierto modo relacionadas y que sirven como
+ base para construir estas matrices.
+\end_layout
+
+\begin_layout Standard
+Para la construcción de una matriz de sustitución para proteínas necesitamos
+ alrededor de 400 valores teniendo en cuenta los 20 aminoácidos pero como
+ durante la construcción de la matriz solo estamos teniendo en cuenta el
+ reemplazo que se de de un aminoácido por otro es decir la dirección de
+ la substitución no influye por lo que A ---> B es igual a B ---> A con
+ lo que el resultado será una matriz simétrica que nos facilita el total
+ de operaciones que se realizan para la construcción de una matriz de sustitució
+n y que finalmente sera un total de 200 valores utilizados para la construcción
+ de la matriz de sustitución.
+ 
+\end_layout
+
+\begin_layout Standard
+A continuación se muestra la idea básica detrás de la construcción de una
+ matriz de sustitución para proteínas basada en el ritmo de sustituciones
+ observadas:
+\end_layout
+
+\begin_layout Standard
+Considera el más simple de los alineamientos es decir un alineamiento global
+ sin gaps de dos secuencias X y Y , de longitud n.
+\end_layout
+
+\begin_layout Standard
+M probabilidad de que los residuos alineados tengan un ancestro en común
+\end_layout
+
+\begin_layout Standard
+R probabilidad de que los residuos fueron alineados por azar
+\end_layout
+
+\begin_layout Standard
+En la puntuación de este alineamiento se evalúa :
+\begin_inset Formula 
+\[
+\frac{Pr(X,Y|M)}{Pr(X,Y|R)}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+El numerador indica la probabilidad de que haya una sustitución dentro de
+ la secuencia 
+\begin_inset Formula $X$
+\end_inset
+
+ a la secuencia 
+\begin_inset Formula $Y$
+\end_inset
+
+ dado que las secuencias tienen un ancestro en común(M).
+ El denominador indica la probabilidad de que haya una sustitución de 
+\begin_inset Formula $X$
+\end_inset
+
+ a 
+\begin_inset Formula $Y$
+\end_inset
+
+ dado que las secuencias son alineadas por azar(R).
+\end_layout
+
+\begin_layout Standard
+La matriz de sustitución que puntuará una alineamiento mediante la estimación
+ de esta proporción para cada uno de los pares de aminoácidos que se encuentran
+ en las dos secuencias alineadas.
+ 
+\end_layout
+
+\begin_layout Standard
+Sea 
+\begin_inset Formula $q_{a}$
+\end_inset
+
+ la frecuencia del aminoácido 
+\begin_inset Formula $a$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Sea 
+\begin_inset Formula $q_{xi}$
+\end_inset
+
+ y 
+\begin_inset Formula $q_{yi}$
+\end_inset
+
+ los residuos en una posición especifica de ambas secuencias X y Y.
+\end_layout
+
+\begin_layout Standard
+Considera el caso donde el alineamiento de 
+\begin_inset Formula $X$
+\end_inset
+
+ y 
+\begin_inset Formula $Y$
+\end_inset
+
+ es aleatorio: 
+\begin_inset Formula 
+\[
+Pr(X,Y|R)=\prod_{i}^{n}q_{xi}\prod_{i}^{n}q_{yi}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Sea 
+\begin_inset Formula $Pab$
+\end_inset
+
+ la probabilidad de que 
+\begin_inset Formula $a$
+\end_inset
+
+ y 
+\begin_inset Formula $b$
+\end_inset
+
+ sean derivados de un ancestro común.
+\end_layout
+
+\begin_layout Standard
+El caso donde el alineamiento es debido a un ancestro común es : 
+\begin_inset Formula 
+\[
+Pr(X,Y|M)=\prod_{i}^{n}P_{xi}{}_{yi}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Esto como resultado de las observaciones relacionadas.
+\end_layout
+
+\begin_layout Standard
+La razón de oportunidades de estas alternativas está dada por:
+\begin_inset Formula 
+\[
+\frac{Pr(X,Y|M)}{Pr(X,Y|R)}=\frac{\prod_{i}^{n}P_{xi}{}_{yi}}{\prod_{i}^{n}q_{xi}\prod_{i}^{n}q_{yi}}=\frac{\prod_{i}^{n}P_{xi}{}_{yi}}{\prod_{i}^{n}q_{xi}q_{yi}}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Aplicando log probabilidades:log
+\begin_inset Formula 
+\[
+log\frac{Pr(X,Y|M)}{Pr(X,Y|R)}=log\sum_{i}^{n}\frac{\prod_{i}^{n}P_{xi}{}_{yi}}{\prod_{i}^{n}q_{xi}q_{yi}}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Aplicando log probabilidades podemos realizar un mejor análisis ya que estamos
+ sumando sobre las razones de cada una de las posibles sustituciones y no
+ sobre las multiplicaciones lo que nos podría generar un mayor error debido
+ a que al realizar multiplicaciones de estos valores puede haber una perdida
+ de precisión y desborde en las cantidades al finalizar los cálculos.
+ 
+\end_layout
+
+\begin_layout Subsubsection
+BLOSUM
+\end_layout
+
+\begin_layout Standard
+Se basa en alineamientos de secuencias de proteínas evolutivamente divergentes
+ para ello se tomó la base de datos BLOCKS y se analizaron regiones muy
+ conservadas de familias de proteínas luego comprobaron las frecuencias
+ relativas de la aparición de aminoácidos y la probabilidad de sustitución
+ entre ellos.
+ Las matrices BLOSUM se describen de la siguiente manera BLOSUM seguidas
+ de un número ejemplo : BLOSUM 62, el número que acompaña el nombre de la
+ matriz indica el porcentaje de identidad entre las secuencias de proteínas
+ utilizadas para la construcción de la matriz.
+ Por lo tanto BLOSUM 62 une a todas las proteínas en un alineamiento >=
+ 62 de identidad.
+ El número hace referencia al mínimo porcentaje de similitud entre los bloques
+ usados para construir la matriz..Un número alto indica que usando esta matriz
+ se comparan secuencias estrechamente relacionadas y un número bajo indica
+ que usando esta matriz se comparan secuencias relacionadas de manera distante.
+ 
+\end_layout
+
+\begin_layout Standard
+Las puntuaciones dentro de la matriz BLOSUM corresponden a log odd probabilidade
+s.
+ Y cada posición de la matriz está representada de la siguiente manera en
+ términos generales: 
+\begin_inset Formula 
+\[
+a_{ij}=\left(\frac{1}{\lambda}\right)\log\left(\frac{P_{ij}}{q_{i}q_{j}}\right)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $P_{ij}$
+\end_inset
+
+ es la probabilidad de que dos aminoácidos 
+\begin_inset Formula $i$
+\end_inset
+
+ y 
+\begin_inset Formula $j$
+\end_inset
+
+ reemplacen uno a otro en una secuencia homóloga.
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $q_{i}$
+\end_inset
+
+ y 
+\begin_inset Formula $q_{j}$
+\end_inset
+
+ son las probabilidades ultimas de encontrar los aminoácidos 
+\begin_inset Formula $i$
+\end_inset
+
+ y 
+\begin_inset Formula $j$
+\end_inset
+
+ en cualquier secuencia de proteína de forma aleatoria.
+\end_layout
+
+\begin_layout Standard
+El factor 
+\begin_inset Formula $\lambda$
+\end_inset
+
+ de proporcionalidad para obtener puntuaciones que difieren después del
+ redondeo para pares distintos de aminos.
+\end_layout
+
+\begin_layout Standard
+En la matriz puntuaciones positivas indican sustituciones conservadas y
+ las puntuaciones negativas indican sustituciones no conservadas.
+\end_layout
+
+\begin_layout Standard
+A continuación se muestra de manera general como se realiza el cálculo de
+ la matriz BLOSUM: 
+\end_layout
+
+\begin_layout Itemize
+Agrupar varias secuencias en un cluster siempre que el porcentaje de similitud
+ sea mayor o igual que el valor L% definido para la matriz BLOSUM L, es
+ decir se cumpla con esta similitud a lo largo de todas las secuencias utilizada
+s para la construcción de la matriz de sustitucion.
+ 
+\end_layout
+
+\begin_layout Itemize
+Contar el número de sustituciones dentro de un mismo cluster .
+\end_layout
+
+\begin_layout Itemize
+Estimar la frecuencia basado en los conteos.
+\end_layout
+
+\begin_layout Subsubsection
+PAM
+\end_layout
+
+\begin_layout Standard
+Esta matriz es derivada de alineamientos globales de secuencias cercanamente
+ relacionadas, es motivada por la evolución.
+ En si la matriz PAM es una matriz usada para buscar relaciones entre secuencias
+ divergentes que fue construida a partir de secuencias estrechamente relacionada
+s.
+\end_layout
+
+\begin_layout Standard
+El modelo de evolución de las matrices PAM tiene las siguientes características:
+\end_layout
+
+\begin_layout Itemize
+Cada posición cambia independientemente del resto.
+\end_layout
+
+\begin_layout Itemize
+La probabilidad de mutación es la misma en cada posición.
+\end_layout
+
+\begin_layout Itemize
+La evolución no recuerda(sin memoria).
+\end_layout
+
+\begin_layout Standard
+Ahora definiremos la medida de distancia PAM : Sea 
+\begin_inset Formula $S_{1}$
+\end_inset
+
+ y 
+\begin_inset Formula $S_{2}$
+\end_inset
+
+ dos secuencias de proteínas con 
+\begin_inset Formula $|S_{1}|=|S_{2}|$
+\end_inset
+
+ decimos que 
+\begin_inset Formula $S_{1}$
+\end_inset
+
+ y 
+\begin_inset Formula $S_{2}$
+\end_inset
+
+ están a una distancia 
+\begin_inset Formula $x$
+\end_inset
+
+ PAM 
+\begin_inset Formula $S_{1}$
+\end_inset
+
+ muy probablemente fue producida a partir de 
+\begin_inset Formula $S_{2}$
+\end_inset
+
+ con 
+\begin_inset Formula $x$
+\end_inset
+
+ mutaciones por 100 aminoácidos.
+ Hay que diferenciar la unidad de medida PAM con el porcentaje de identidad
+ de una secuencia por ejemplo la matriz PAM 250 tiene en cuenta secuencias
+ con el 20% de identidad.
+ Pares de secuencias con un medida PAM > 250 probablemente no son homólogos
+ ya que para estos pares % de identidad de secuencia es menor al 20%.
+\end_layout
+
+\begin_layout Standard
+El cálculo de las matrices PAM se basó en árboles filogenéticos que se construye
+ron a partir de 71 familias de proteínas estrechamente relacionada, las
+ proteínas a ser estudiadas fueron seleccionadas sobre la base que tuvieran
+ alta similitud con sus predecesores.
+\end_layout
+
+\begin_layout Standard
+Las puntuaciones dentro de la matriz PAM corresponde a log probabilidades.
+ El valor de una determinada celda representa la probabilidad de la sustitución
+ de un aminoácido por otro a esto denominamos mutación puntual, así , la
+ matriz se calcula observando diferencias en las proteínas muy cercanas
+ evolutivamente por lo que las sustituciones en cuestión no tienen efecto
+ sobre la función de la proteína .
+ Y cada posición de la matriz está representada de la siguiente manera en
+ términos generales: 
+\begin_inset Formula 
+\[
+M_{x}\left(i,j\right)=\log\left(\frac{f_{ij}}{f_{i}f_{j}}\right)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $f_{ij}$
+\end_inset
+
+es la probabilidad de que dos aminoácidos 
+\begin_inset Formula $i$
+\end_inset
+
+ y 
+\begin_inset Formula $j$
+\end_inset
+
+ reemplacen uno a otro en una secuencia homologa.
+ Proporción de mutación.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $f_{i}f_{j}$
+\end_inset
+
+son las frecuencias relativas de los aminoácidos 
+\begin_inset Formula $i$
+\end_inset
+
+ y 
+\begin_inset Formula $j$
+\end_inset
+
+ en cualquier secuencia de la proteína.
+\end_layout
+
+\begin_layout Standard
+Las frecuencias de las mutaciones de PAM 
+\begin_inset Formula $X$
+\end_inset
+
+ dependen linealmente de las frecuencias de las mutaciones de PAM 1 de modo
+ que PAM 
+\begin_inset Formula $X$
+\end_inset
+
+ es calculada al repetir la multiplicación de matrices de PAM 1 por ella
+ misma.
+\begin_inset Formula 
+\[
+M_{x}=(M_{1})^{x}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Tabular
+<lyxtabular version="3" rows="7" columns="2">
+<features rotate="0" tabularvalignment="middle">
+<column alignment="center" valignment="middle" width="50text%">
+<column alignment="center" valignment="top" width="50text%">
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+PAM
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+BLOSUM
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Calculada a partir de alineamientos globales
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Cálculo a partir de alineamientos locales
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Secuencias de proteínas usadas en alineamiento tienen > 99% de identidad
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Puede seleccionar un nivel de similitud entre las secuencias usadas en el
+ análisis
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+La matriz más utilizada es la PAM 250
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+La matriz más usada es BLOSUM 62
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Las matrices son extrapolaciones matemáticas de la matriz PAM 1
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Cada matriz es el resultado del análisis de un alineamiento de bloques conservad
+os ( análisis real)
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Es posible elaborar un modelo evolutivo y así generar nuevas matrices a
+ partir de la primera
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+No permite generar un modelo evolutivo
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Permite detectar las mejores secuencias con relación biológica ya que se
+ basa en alineamiento de secuencias existentes y no en valores extrapolados.
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Tabular
+<lyxtabular version="3" rows="3" columns="3">
+<features rotate="0" tabularvalignment="middle">
+<column alignment="center" valignment="top" width="33text%">
+<column alignment="center" valignment="top" width="33text%">
+<column alignment="center" valignment="top" width="33text%">
+<row bottomspace="2text%">
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+BLOSUM80
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+BLOSUM62
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+BLOSUM45
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row bottomspace="2text%">
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+PAM1
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+PAM120
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+PAM250
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Menos divergente
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+< ----------------------------------- >
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Mas divergente
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Debido a que en nuestra generalización buscamos tener un visión general
+ es oportuno realizar una profundización sobre su implementación principalmente
+ en los datos que son usados inicialmente para construir los clusters con
+ el determinado % de identidad.
+ 
+\end_layout
+
+\begin_layout Subsection
+Elección de la matriz a utilizar y el algoritmo
+\end_layout
+
+\begin_layout Subsubsection
+Comparación entre BLOSUM y PAM
+\end_layout
+
+\begin_layout Standard
+Debido a que en este trabajo deseamos mostrar una metodología que permita
+ la construcción de matrices de sustitución generalizadas y evaluando entre
+ las matrices PAM y BLOSUM se puede comprobar que resulta mas coherente
+ la utilización de las matrices BLOSUM si la idea es generalizar y poder
+ llevar acabo estudios con diferentes grupos de proteínas ya que los resultados
+ estarán estrechamente relacionados con las fuentes utilizadas para la construcc
+ión de las matrices es por esta razón que hemos decidido utilizar las matrices
+ BLOSUM ya que se basan en alineamientos de secuencias de proteinas existentes.
+ 
+\end_layout
+
+\begin_layout Subsubsection
+Matriz seleccionada : BLOSUM y su algoritmo
+\end_layout
+
+\begin_layout Standard
+El algoritmo inicial sobre el cual se desarrollaron las matrices BLOSUM
+ remonta al año 1991 esta base se ha mantenido con algunas modificaciones
+ que se han ido realizando durante los años siguientes a su creación permitiendo
+ corregir problemas en dicho algoritmo pero conservando su base y usando
+ diferentes bases de datos como entrada que corresponden a las distintas
+ versiones de BLOCKS.
+\end_layout
+
+\begin_layout Standard
+La base de datos BLOCKS contiene multiples alineamientos de regiones conservadas
+ en familia de proteinas.
+ La base de datos BLOCKS esta basada en entradas de InterPro con secuencias
+ de SWISS_PROT y TrEMBL tambient tiene referencias a PROSITE, PRINTS , SMART,
+ PFAM y ProDOM.
+ La base de datos fue construida usando el sistema PROTOMAT que mediante
+ el uso de un algoritmo de MOTIFS y mediante un proceso interactivo se construye
+ron todos los bloques que conforman la base de datos que describen cada
+ una de las familias.
+\end_layout
+
+\begin_layout Standard
+Inicialmente se planteaba construir los bloques usando el sistema PROTOMAT
+ pero debido a la complejidad y al cambio que ha habido en cada una de las
+ bases de datos con el tiempo se ha decidido trabajar con la ultima versión
+ de BLOCKS que corresponde a la versión 14.3 del 2007.
+\end_layout
+
+\begin_layout Standard
+Para el desarrollo de este trabajo de grado hemos tomado como base un algoritmo
+ que ha sido revisado y corregido algunos problemas que presentaba el algoritmo
+ original, irónicamente los resultados que arroja la versión corregida son
+ peores cuando hablamos de búsquedas en bases de datos usando como base
+ las matrices de sustitución arrojadas por el algoritmo es por esta razón
+ que basados en los alcances de este proyecto se decide realizar tres pruebas
+ para verificar que el algoritmo revisado que a pesar de tener problemas
+ con las matrices cuando son utilizadas para búsquedas conservan la misma
+ información que requerimos para el proceso de generalización.
+\end_layout
+
+\begin_layout Standard
+Para realizar estas pruebas tomamos como base de datos Blocks 14.3 y el algoritmo
+ Blosum revisado y construimos las matrices de sustitución Blosum 45 , Blosum
+ 62 y Blosum 80 después de obtener estas matrices comparamos los resultados
+ arrojados con las versiones que son manejadas actualmente como estándar
+ de las mismas matrices he hicimos una comparación viendo que diferencias
+ había entre la versión antigua y la nueva versión de cada una de las matrices
+ de sustitución.
+ A continuación se presentan tres imágenes correspondientes a la comparación
+ de cada una de las matrices en donde cada valor en la matriz tiene un color
+ asociado para reconocer a simple vista que tan divergente es la matriz
+ arrojada de su antepasado.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Graphics
+	filename /home/yerminson/Documentos/substitution-matrices/document/Documento Actualizado/Images/Blosum45Comparision.png
+	scale 50
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Graphics
+	filename /home/yerminson/Documentos/substitution-matrices/document/Documento Actualizado/Images/Blosum62Comparision.png
+	scale 50
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Graphics
+	filename /home/yerminson/Documentos/substitution-matrices/document/Documento Actualizado/Images/Blosum80Comparision.png
+	scale 50
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Como podemos ver en cada una de las imagenes las diferencias no van mas
+ allá de 3 unidades en la mayoría de las matrices exceptuando la matriz
+ Blosum 45 que presenta valores mas divergentes cabe resaltar que cada uno
+ de estos valores están determinados por los parámetros con los cuales se
+ corrió el algoritmo y la base de datos utilizada para las matrices originales
+ se uso Blocks 5.0 para estas nuevas matrices se uso la base de datos Blocks
+ 7.0 que es la que se tendrá de base para realizar todo el desarrollo durante
+ el trabajo de grado.
+ 
+\end_layout
+
+\begin_layout Standard
+A partir de estos resultados podemos ver que es altamente viable usar el
+ algoritmo revisado como base para las implementaciones de los algoritmos
+ generalizados de las matrices de sustitución.
+\end_layout
+
+\end_body
+\end_document
